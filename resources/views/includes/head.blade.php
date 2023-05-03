@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="{{ asset('global/fonts/brand-icons/brand-icons.min.css')}}">
 <link rel="stylesheet" href="{{ asset('global/site.css')}}">
 <link rel="stylesheet" href="{{ asset('global/fonts/material-design/material-design.min.css')}}">
-<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 <link rel="stylesheet" href="{{ asset('global/vendor/toastr/toastr.css')}}">
 <link rel="stylesheet" href="{{ asset('global/fonts/ionicons/ionicons.min.css')}}">
 <link rel="stylesheet" href="{{ asset('global/fonts/mfglabs/mfglabs.min.css')}}">

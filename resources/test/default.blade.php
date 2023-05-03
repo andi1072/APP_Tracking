@@ -5,7 +5,7 @@
     <head>
 
         @include('includes.head')
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
     </head>
 
     <body class="animsition">
