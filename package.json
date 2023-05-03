@@ -1,0 +1,23 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.2",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "cookies-js": "^1.2.3",
+        "jquery": "^3.6.3",
+        "jsdom": "^21.1.1",
+        "leaflet-drift-marker": "^2.0.0",
+        "leaflet-rotatedmarker": "^0.2.0",
+        "leaflet-svg-shape-markers": "^1.4.0",
+        "popper.js": "^1.16.1"
+    }
+}
