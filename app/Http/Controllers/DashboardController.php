@@ -11,6 +11,7 @@ class DashboardController extends Controller
 
     public function divice_map() {
         $res = Hlp::apiGet('/dashboard');
+        dd($res);
         return response()->json([
             'data' => $res,
         ]);
