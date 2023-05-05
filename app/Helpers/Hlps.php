@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+
+use GuzzleHttp\Client;
 class Hlps
 {
     public static function csrf($value = null)
@@ -45,9 +47,31 @@ class Hlps
     
     public static function apiGet($url)
     {
-        $response = Http::withToken(Cookie::get('API_TOKEN'))
-        ->get(env('APP_API'). '/api' . $url);
-        return $response->object();
+        // $response = Http::withToken(Cookie::get('API_TOKEN'))
+        // ->get(env('APP_API'). '/api' . $url);
+        // return $response->object();
+
+        $client = new Client(['base_uri' => env('APP_API')]);
+        // $res = $client->get('/api' . $url);
+        // echo $res->getStatusCode();
+        // // "200"
+        // // echo $res->getHeader('content-type');
+        // // 'application/json; charset=utf8'
+        // echo $res->getBody();
+        // // {"type":"User"...'
+        // // var_export($res->json());
+        // dd($res);
+
+        $headers = [
+            'Authorization' => 'Bearer ' . Cookie::get('API_TOKEN'),        
+            'Accept'        => 'application/json',
+        ];
+        $response = $client->request('GET', '/api' . $url, [
+            'headers' => $headers
+        ]);
+        echo $response->getStatusCode();
+        echo $response->getBody();
+        dd($response);
     }
 
     public static function apiPost($url, $body)
