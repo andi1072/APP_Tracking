@@ -51,7 +51,8 @@ class Hlps
         // ->get(env('APP_API'). '/api' . $url);
         // return $response->object();
 
-        $client = new Client(['base_uri' => env('APP_API')]);
+        $client = new Client();
+        // dd(env('APP_API'));
         // $res = $client->get('/api' . $url);
         // echo $res->getStatusCode();
         // // "200"
@@ -66,7 +67,7 @@ class Hlps
             'Authorization' => 'Bearer ' . Cookie::get('API_TOKEN'),        
             'Accept'        => 'application/json',
         ];
-        $response = $client->request('GET', '/api' . $url, [
+        $response = $client->request('GET', env('APP_API'). '/api' . $url, [
             'headers' => $headers
         ]);
         echo $response->getStatusCode();
