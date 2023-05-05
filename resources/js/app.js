@@ -23,7 +23,7 @@ window.c_marker_front_cfg = [
 // window.mapLayer = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
 // window.mapLayer = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 window.mapLayer = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
-const sio = io("http://110.5.105.26:60011");
+const sio = io("http://110.5.105.26:41257");
 window.sio = sio;
 
 sio.on("trx_device_geo_rcv", function (data) {
