@@ -47,11 +47,11 @@ class Hlps
     
     public static function apiGet($url)
     {
-        // $response = Http::withToken(Cookie::get('API_TOKEN'))
-        // ->get(env('APP_API'). '/api' . $url);
-        // return $response->object();
+        $response = Http::withToken(Cookie::get('API_TOKEN'))
+        ->get(env('APP_API'). '/api' . $url);
+        return $response->object();
 
-        $client = new Client();
+        // $client = new Client();
         // dd(env('APP_API'));
         // $res = $client->get('/api' . $url);
         // echo $res->getStatusCode();
@@ -63,16 +63,16 @@ class Hlps
         // // var_export($res->json());
         // dd($res);
 
-        $headers = [
-            'Authorization' => 'Bearer ' . Cookie::get('API_TOKEN'),        
-            'Accept'        => 'application/json',
-        ];
-        $response = $client->request('GET', env('APP_API'). '/api' . $url, [
-            'headers' => $headers
-        ]);
-        echo $response->getStatusCode();
-        echo $response->getBody();
-        dd($response);
+        // $headers = [
+        //     'Authorization' => 'Bearer ' . Cookie::get('API_TOKEN'),        
+        //     'Accept'        => 'application/json',
+        // ];
+        // $response = $client->request('GET', env('APP_API'). '/api' . $url, [
+        //     'headers' => $headers
+        // ]);
+        // echo $response->getStatusCode();
+        // echo $response->getBody();
+        // dd($response);
     }
 
     public static function apiPost($url, $body)
