@@ -3,7 +3,8 @@ import "leaflet-rotatedmarker";
 // const url = window.burl;
 // const iconUrl = "/assets/images/leaflet/yellow-car40px.png";
 // const iconTop = "/assets/images/leaflet/yellow-car-top.png";
-const sio = window.sio;
+// const sio = window.sio;
+const sio = io("http://110.5.105.26:41257");
 var _curLat = $("input[name=_lat]").val(), _curLon = $("input[name=_lon]").val(),
 _device_id = $("input[name=_id]").val(),
 myIcon = function (iUrl) {

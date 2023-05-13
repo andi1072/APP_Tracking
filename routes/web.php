@@ -28,11 +28,6 @@ Route::group(['middleware' => 'chk'], function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('dashboard/js', 'divice_map')->name('dashboard_js');
         Route::get('dashboard', 'index')->name('dashboard');
-        
-        Route::get('test', 'test')->name('test');
-        Route::get('test/js', 'test_gate_import')->name('test_gate_import');
-        Route::get('test/section/js', 'import_section')->name('import_section');
-        Route::get('test/sectionlatlng/js', 'import_section_latlng')->name('import_section_latlng');
     });
 
     Route::controller(TrackingController::class)->group(function () {

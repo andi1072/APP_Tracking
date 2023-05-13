@@ -3,7 +3,8 @@ import "leaflet-rotatedmarker";
 import 'leaflet-svg-shape-markers';
 const url = window.burl;
 
-const sio = window.sio;
+// const sio = window.sio;
+const sio = io("http://110.5.105.26:41257");
 const gateIcon = '/assets/images/leaflet/toll_gate.png';
 var map = L.map('devicesmap', {
     minZoom: 5,
