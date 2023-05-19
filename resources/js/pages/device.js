@@ -1,5 +1,4 @@
-const url = window.burl;
-
+var _customer_id = '';
 $('#formDevice').submit(
     function (e) {
         e.preventDefault();
@@ -10,6 +9,10 @@ $('#formDevice').submit(
 var saveDevice = function () {
     var backurl = $("input[name=_backurl]").val(),did = $("input[name=txtdevice_id]").val();
     did = did.replace(" ","-");
+    if (_customer_id === '') {
+        toastr.warning("Customer required.", 'Warning');
+        return null;
+    }
     var fd = new FormData();
     fd.append('_id', $("input[name=_id]").val());
     fd.append('_token', $("input[name=_token]").val());
@@ -21,9 +24,10 @@ var saveDevice = function () {
     fd.append('txtassettype', $("input[name=txtassettype]").val());
     fd.append('txtcustomername', $("input[name=txtcustomername]").val());
     fd.append('txtassetdescription', $("textarea[name=txtassetdescription]").val());
+    fd.append('selcustomer_id', _customer_id);
     $.ajax({
         type: 'POST'
-        , url: url + '/device/js/add'
+        , url: window.burl + '/device/js/add'
         , data: fd
         , dataType: 'json'
         , contentType: false
@@ -50,7 +54,7 @@ var saveDevice = function () {
                 },
                     function (isConfirm) {
                         if (isConfirm) {
-                            window.location.href = url + '/device/detail/' + did;
+                            window.location.href = window.burl + '/device/detail/' + did;
                         } else {
                             // swal("Cancelled", "Your imaginary file is safe :)", "error");
                             window.location.href = backurl;
@@ -63,3 +67,16 @@ var saveDevice = function () {
         }
     });
 }
+
+$("#sel_user").select2();
+axios.get(`${window.burl}/info/js/user_select`).then(rr => {
+    $("#sel_user").select2({
+        data: rr.data.dataUser
+    });
+}).catch(err => {
+    console.log(err);
+});
+
+$("#sel_user").on("change",function () {
+    _customer_id = $('#sel_user').val();
+});

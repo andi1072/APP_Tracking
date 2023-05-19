@@ -1,3 +1,12 @@
+@if (isset($d))
+@section('page_title')
+    {{ $d->ftgeo_name }}
+@endsection
+@else
+@section('page_title')
+    {{ "Add Geo Location" }}
+@endsection
+@endif
 <x-default>
     @push('isstyles')
     <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}" />
@@ -119,7 +128,7 @@
     <script src="{{ asset('leaflet/fullscreen/Leaflet.fullscreen.min.js')}}"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     @vite([
-    // 'resources/js/pages/geo.js',
+    'resources/js/pages/geo.js',
     ])
     @endpush
 </x-default>

@@ -1,3 +1,6 @@
+@section('page_title')
+    {{ "User List" }}
+@endsection
 <x-default>
 
     @push('isstyles')

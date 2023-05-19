@@ -1,3 +1,6 @@
+@section('page_title')
+    {{ "Add Toll Gate" }}
+@endsection
 <x-default>
     @push('isstyles')
     <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}" />

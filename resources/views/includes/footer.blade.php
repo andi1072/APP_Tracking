@@ -2,7 +2,7 @@
     <div class="site-footer-legal">
         © 2023
         <a href="https://transdigi.co.id">
-            TRANSDIGI
+            PT. TRANS TOL DIGITAL
         </a>
     </div>
     <div class="site-footer-right">

@@ -65,21 +65,17 @@
                                 <span class="site-menu-title">Device List</span>
                             </a>
                         </li>
+                        @if (Cookie::get('USRID') == '72252c8a-8947-4300-b933-90609c37a55d')
                         <li class="site-menu-item {{ \Hlp::chkActive(route('device_create_index')) }}">
                             <a class="animsition-link" href="{{ route('device_create_index') }}">
                                 <span class="site-menu-title">Add New Device</span>
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </li>
                 <li class="site-menu-category">Configuration</li>
-                <li class="site-menu-item ">
-                    <a class="animsition-link" href="#">
-                        <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
-                        <span class="site-menu-title">Toll Section</span>
-                    </a>
-                </li>
-                {{-- @if (\Hlp::chkActive(route('geo_create_index')) || \Hlp::chkActive(route('geo_list')))
+                @if (\Hlp::chkActive(route('geo_create_index')) || \Hlp::chkActive(route('geo_list')))
                     <li class="site-menu-item has-sub active open">
                 @else
                     <li class="site-menu-item has-sub">
@@ -101,8 +97,15 @@
                             </a>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
                 @if (Cookie::get('USRID') == '72252c8a-8947-4300-b933-90609c37a55d')
+                
+                    <li class="site-menu-item ">
+                        <a class="animsition-link" href="#">
+                            <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
+                            <span class="site-menu-title">Toll Section</span>
+                        </a>
+                    </li>
                     @if (\Hlp::chkActive(route('geomlff_create_index')) || \Hlp::chkActive(route('geomlff_list')) || \Hlp::chkActive(route('gate_create')))
                         <li class="site-menu-item has-sub active open">
                     @else

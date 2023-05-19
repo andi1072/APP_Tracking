@@ -1,3 +1,6 @@
+@section('page_title')
+    {{ "MLFF Gate Listed" }}
+@endsection
 <x-default>
 
     @push('isstyles')

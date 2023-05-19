@@ -34,6 +34,7 @@ class DeviceController extends Controller
             'txtassettype' => 'required|max:100',
             'txtcustomername' => 'required|max:100',
             'txtassetdescription' => 'max:255',
+            'selcustomer_id' => 'required'
             // 'status' => 'required|numeric'
         ]);
         if ($validator->fails()) {
@@ -69,7 +70,8 @@ class DeviceController extends Controller
             'asset_type' => $re->input('txtassettype'),
             'customer_name' => $re->input('txtcustomername'),
             'description' => $re->input('txtassetdescription'),
-            'status' => 1
+            'status' => 1,
+            'customer_id' => $re->input('selcustomer_id'),
         ];
         $r = Hlp::apiPost('/device', $body);
         $res = $r->object();
@@ -101,7 +103,8 @@ class DeviceController extends Controller
             'asset_type' => $re->input('txtassettype'),
             'customer_name' => $re->input('txtcustomername'),
             'description' => $re->input('txtassetdescription'),
-            'status' => 1
+            'status' => 1,
+            'customer_id' => $re->input('selcustomer_id'),
         ];
         $r = Hlp::apiPut('/device', $body);
         $res = $r->object();

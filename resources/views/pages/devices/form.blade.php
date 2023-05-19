@@ -1,3 +1,12 @@
+@if (isset($d))
+@section('page_title')
+    {{ "Device Detail" }}
+@endsection
+@else
+@section('page_title')
+    {{ "Add New Device" }}
+@endsection
+@endif
 <x-default>
     @push('isstyles')
     <link rel="stylesheet" href="{{ asset('global/vendor/ladda/ladda.css')}}">
@@ -27,18 +36,21 @@
                         <input type="hidden" name="_id" value="{{ isset($d) ? $d->ftdevice_id : '0' }}">
                         <div class="row row-lg">
                             <div class="col-xl-6">
+                                @if (Cookie::get('USRID') == '72252c8a-8947-4300-b933-90609c37a55d')
                                 <div class="form-group form-material floating" data-plugin="formMaterial">
-                                    {{-- <div class="col">
-                                        <label class="floating-label">Tracking Category</label>
-                                    </div> --}}
                                     <select class="form-control" id="trackcategory" data-plugin="selectpicker" data-style="btn-info" name="seltrackcategory" required="">
                                         <option value="0">Device Type</option>
                                         <option value="1">GSM</option>
                                         <option value="2">SIGFOX</option>
                                     </select>
                                 </div>
+                                @endif
                                 <div class="form-group form-material floating" data-plugin="formMaterial">
-                                    <input type="text" class="form-control" name="txtdevice_id" required="" value="{{ isset($d) ? $d->ftdevice_id : '' }}">
+                                    @if (isset($d))
+                                    <input type="text" class="form-control" name="txtdevice_id" required="" value="{{ isset($d) ? $d->ftdevice_id : '' }}" readonly>
+                                    @else
+                                    <input type="text" class="form-control" name="txtdevice_id" required="">
+                                    @endif
                                     <label class="floating-label">Device ID
                                         <span class="required">*</span>
                                     </label>
@@ -49,6 +61,14 @@
                                         <span class="required">*</span>
                                     </label>
                                 </div>
+                                @if (Cookie::get('USRID') == '72252c8a-8947-4300-b933-90609c37a55d')
+                                <div class="form-group form-material floating" data-plugin="formMaterial">
+                                    <label>Customer
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="sel_user" name="sel_user" data-plugin="ionRangeSlider" style="width:100%" value="{{ isset($d) ? $d->uuid_customer_id : '0' }}"/>
+                                </div>
+                                @endif
                             </div>
 
                             <div class="col-xl-6 form-horizontal">
@@ -69,7 +89,7 @@
                                     <label class="floating-label">Description</label>
                                 </div>
                             </div>
-
+                            @if (Cookie::get('USRID') == '72252c8a-8947-4300-b933-90609c37a55d')
                             <div class="form-group form-material col-xl-12 text-right padding-top-m">
                                 <button type="submit" class="btn btn-info ladda-button" data-style="expand-left" data-plugin="ladda">
                                     <span class="ladda-label"><i class="icon md-arrows mr-10" aria-hidden="true"></i>
@@ -77,6 +97,7 @@
                                     </span>
                                 </button>
                             </div>
+                            @endif
                         </div>
                     </form>
                 </div>

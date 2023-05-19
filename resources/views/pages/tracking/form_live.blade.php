@@ -30,24 +30,24 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('tracking_map',$deviceData->deviceRelay->ftdevice_id) }}" class="nav-link small text-uppercase">
-                                Tracking Map
+                                OBU Tracking
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('tracking_geo',$deviceData->deviceRelay->ftdevice_id) }}" class="nav-link small text-uppercase">
                                 Geofence
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('tracking_mlff',$deviceData->deviceRelay->ftdevice_id) }}" class="nav-link small text-uppercase">
                                 Toll Declaration
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('tracking_live',$deviceData->deviceRelay->ftdevice_id) }}" class="nav-link small text-uppercase active">
                                 🔴Live Tracking
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="py-4"></div>
                     <div id="tabsContent" class="tab-content">

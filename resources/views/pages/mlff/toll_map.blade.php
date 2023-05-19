@@ -1,3 +1,6 @@
+@section('page_title')
+    {{ "Toll Map" }}
+@endsection
 <x-default>
     @push('isstyles')
         {{-- <link rel="stylesheet" href="{{ asset('global/vendor/chartist/chartist.css')}}">

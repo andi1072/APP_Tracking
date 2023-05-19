@@ -30,5 +30,10 @@ class DataController extends Controller
         ], 200);
     }
 
-    
+    public function user_select() {
+        $res = Hlp::apiGet('/user/select');
+        return response()->json([
+            'dataUser' => $res->data,
+        ], 200);
+    }
 }

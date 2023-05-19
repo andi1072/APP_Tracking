@@ -1,8 +1,8 @@
+@section('page_title')
+    {{ "Dashboard" }}
+@endsection
 <x-default>
     @push('isstyles')
-        {{-- <link rel="stylesheet" href="{{ asset('global/vendor/chartist/chartist.css')}}">
-        <link rel="stylesheet" href="{{ asset('global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css')}}"> --}}
-        {{-- <link rel="stylesheet" href="{{ asset('global/vendor/mapbox-js/mapbox.css')}}"> --}}
         <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}"/>
     @endpush
     <div class="page-content container-fluid">

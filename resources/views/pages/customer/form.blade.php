@@ -1,3 +1,12 @@
+@if (isset($d))
+@section('page_title')
+    {{ "User Detail" }}
+@endsection
+@else
+@section('page_title')
+    {{ "Add New User" }}
+@endsection
+@endif
 <x-default>
     @push('isstyles')
     <link rel="stylesheet" href="{{ asset('global/vendor/ladda/ladda.css')}}">

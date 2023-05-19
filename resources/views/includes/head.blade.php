@@ -1,7 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TRANSDIGI ADMINISTRATOR</title>
-
+{{-- <title>TRANSDIGI ADMINISTRATOR</title> --}}
+<title>@yield('page_title', 'Default Title') | TRANSDIGI</title>
+<link rel="icon" href="{{ asset('favicon.png')}}" type="image/x-icon">
 <link rel="stylesheet" href="{{ asset('global/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{ asset('global/css/bootstrap-extend.min.css')}}">
 <link rel="stylesheet" href="{{ asset('global/vendor/animsition/animsition.css')}}">
@@ -22,8 +23,8 @@
 <script>
     Breakpoints();
 </script>
-<script src="{{ asset('global/sio/socket.io.min.js')}}"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+{{-- <script src="{{ asset('global/sio/socket.io.min.js')}}"></script> --}}
+<script type="text/javascript" src="{{ asset('global/js/moment.min.js')}}"></script>
 @vite([
     'resources/css/app.css',
     'resources/js/app.js',

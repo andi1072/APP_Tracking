@@ -1,3 +1,12 @@
+@if (isset($d))
+@section('page_title')
+    {{ $d->ftname }}
+@endsection
+@else
+@section('page_title')
+    {{ "Add Gate Declaration" }}
+@endsection
+@endif
 <x-default>
     @push('isstyles')
     <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}" />

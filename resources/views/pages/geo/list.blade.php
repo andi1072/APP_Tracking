@@ -1,3 +1,6 @@
+@section('page_title')
+    {{ "Geo Location Listed" }}
+@endsection
 <x-default>
 
     @push('isstyles')

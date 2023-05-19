@@ -1,24 +1,22 @@
+@section('page_title')
+    {{ "Device Listed" }}
+@endsection
 <x-default>
 
     @push('isstyles')
     <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-bs4/dataTables.bootstrap4.min.css')}}">
-    {{-- <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.css')}}">
-    <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.css')}}">
-    <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.css')}}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.css')}}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-select-bs4/dataTables.select.bootstrap4.css')}}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css')}}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('global/vendor/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css')}}"> --}}
     @endpush
 
     <div class="page-header page-header-bordered">
         <h1 class="page-title">Device Listed</h1>
+        @if (Cookie::get('USRID') == '72252c8a-8947-4300-b933-90609c37a55d')
         <div class="page-header-actions">
             <a href="{{ route('device_create_index') }}" class="btn btn-sm btn-outline btn-primary btn-round waves-effect waves-classic">
                 <span class="text hidden-sm-down">Add New</span>
                 <i class="icon md-chevron-right" aria-hidden="true"></i>
             </a>
         </div>
+        @endif
     </div>
     <div class="page-content">
         <!-- Panel Basic -->

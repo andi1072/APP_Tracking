@@ -1,3 +1,6 @@
+@section('page_title')
+    {{ "Device Geofence" }}
+@endsection
 <x-default>
     <input type="hidden" name="_id" value="{{ $deviceData->deviceRelay->ftdevice_id }}">
     <input type="hidden" name="_lat" value="{{ $deviceData->deviceRelay->fflat }}">
@@ -30,24 +33,24 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('tracking_map',$deviceData->deviceRelay->ftdevice_id) }}" class="nav-link small text-uppercase">
-                                Tracking Map
+                                OBU Tracking
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('tracking_geo',$deviceData->deviceRelay->ftdevice_id) }}" class="nav-link small text-uppercase active">
                                 Geofence
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('tracking_mlff',$deviceData->deviceRelay->ftdevice_id) }}" class="nav-link small text-uppercase">
                                 Toll Declaration
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('tracking_live',$deviceData->deviceRelay->ftdevice_id) }}" class="nav-link small text-uppercase">
                                 🔴Live Tracking
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="py-4"></div>
                     <div id="tabsContent" class="tab-content">

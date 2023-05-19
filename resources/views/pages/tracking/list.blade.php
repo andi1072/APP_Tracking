@@ -1,3 +1,6 @@
+@section('page_title')
+    {{ "Tracking" }}
+@endsection
 <x-default>
 
     @push('isstyles')
