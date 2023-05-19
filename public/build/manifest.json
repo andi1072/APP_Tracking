@@ -44,6 +44,11 @@
     "isEntry": true,
     "src": "resources/js/pages/device.js"
   },
+  "resources/js/pages/geo.js": {
+    "file": "assets/geo-5033ac36.js",
+    "isEntry": true,
+    "src": "resources/js/pages/geo.js"
+  },
   "resources/js/pages/geomlff.js": {
     "file": "assets/geomlff-77e74529.js",
     "isEntry": true,
