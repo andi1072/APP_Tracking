@@ -73,7 +73,13 @@
                     </ul>
                 </li>
                 <li class="site-menu-category">Configuration</li>
-                @if (\Hlp::chkActive(route('geo_create_index')) || \Hlp::chkActive(route('geo_list')))
+                <li class="site-menu-item ">
+                    <a class="animsition-link" href="#">
+                        <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
+                        <span class="site-menu-title">Toll Section</span>
+                    </a>
+                </li>
+                {{-- @if (\Hlp::chkActive(route('geo_create_index')) || \Hlp::chkActive(route('geo_list')))
                     <li class="site-menu-item has-sub active open">
                 @else
                     <li class="site-menu-item has-sub">
@@ -95,7 +101,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 @if (Cookie::get('USRID') == '72252c8a-8947-4300-b933-90609c37a55d')
                     @if (\Hlp::chkActive(route('geomlff_create_index')) || \Hlp::chkActive(route('geomlff_list')) || \Hlp::chkActive(route('gate_create')))
                         <li class="site-menu-item has-sub active open">

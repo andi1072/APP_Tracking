@@ -119,7 +119,7 @@
     <script src="{{ asset('leaflet/fullscreen/Leaflet.fullscreen.min.js')}}"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     @vite([
-    'resources/js/pages/geo.js',
+    // 'resources/js/pages/geo.js',
     ])
     @endpush
 </x-default>

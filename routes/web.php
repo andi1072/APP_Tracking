@@ -6,7 +6,7 @@ use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\Admin\TrackingController;
 use App\Http\Controllers\Admin\DeviceController;
-use App\Http\Controllers\Admin\GeoController;
+// use App\Http\Controllers\Admin\GeoController;
 use App\Http\Controllers\Admin\GeoMlffController;
 use App\Http\Controllers\Admin\RestAreaController;
 use App\Http\Controllers\Admin\TollRouteController;
@@ -43,7 +43,7 @@ Route::group(['middleware' => 'chk'], function () {
             Route::get('list', 'list')->name('tracking_list');
             Route::get('detail/{deviceid}/status', 'detail_status')->name('tracking_status');
             Route::get('detail/{deviceid}/map', 'detail_map')->name('tracking_map');
-            Route::get('detail/{deviceid}/geofence', 'detail_geo')->name('tracking_geo');
+            // Route::get('detail/{deviceid}/geofence', 'detail_geo')->name('tracking_geo');
             Route::get('detail/{deviceid}/live', 'detail_live')->name('tracking_live');
             Route::get('detail/{deviceid}/mlff', 'detail_mlff')->name('tracking_mlff');
         });
@@ -62,19 +62,19 @@ Route::group(['middleware' => 'chk'], function () {
         });
     });
 
-    Route::controller(GeoController::class)->group(function () {
-        Route::group([
-            'prefix' => 'geo',
-        ], function() {
-            Route::get('js','list_js')->name('geo_list_js');
-            Route::post('js/add','create_update')->name('geo_create_update_js');
-            Route::get('js/detail/{geoid}/point','detail_point')->name('geo_detail_point_js');
+    // Route::controller(GeoController::class)->group(function () {
+    //     Route::group([
+    //         'prefix' => 'geo',
+    //     ], function() {
+    //         Route::get('js','list_js')->name('geo_list_js');
+    //         Route::post('js/add','create_update')->name('geo_create_update_js');
+    //         Route::get('js/detail/{geoid}/point','detail_point')->name('geo_detail_point_js');
             
-            Route::get('list','list')->name('geo_list');
-            Route::get('add', 'formindex')->name('geo_create_index');
-            Route::get('detail/{geoid}', 'detail')->name('geo_detail');
-        });
-    });
+    //         Route::get('list','list')->name('geo_list');
+    //         Route::get('add', 'formindex')->name('geo_create_index');
+    //         Route::get('detail/{geoid}', 'detail')->name('geo_detail');
+    //     });
+    // });
 
     Route::controller(RestAreaController::class)->group(function () {
         Route::group([

@@ -11,8 +11,8 @@
             <div class="panel">
                 <div class="panel-body">
                     <div class="brand">
-                        <img style="width: 400px" class="brand-img" src="https://xenxor.com/wp-content/uploads/2020/08/logo-xenxor.png" alt="XENXOR">
-                        <p class="brand-text font-size-18">IoT helps ease your mind</p>
+                        <img style="width: 300px" class="brand-img" src="{{ asset('assets/images/TRANSDIGI.png')}}" alt="TRANSDIGI ADMINISTRATOR"></br>
+                        <label class="font-size-15" class="brand-text font-size-18">E-TOLL MLFF OBU Provider</label>
                     </div>
                     <form action="{{ route('login-js') }}" enctype="multipart/form-data" method="post" autocomplete="off">
                         @csrf
@@ -31,19 +31,14 @@
                             </div>
                             <a class="float-right" href="#">Forgot password?</a>
                         </div>
-                        
+                        <div class="form-group clearfix">
                         <button type="submit" class="btn btn-info ladda-button" data-style="expand-left" data-plugin="ladda">
                             <span class="ladda-label"><i class="icon md-arrows mr-10" aria-hidden="true"></i>
                                 Login
                             </span>
                         </button>
-                        <button type="button" class="btn btn-danger ladda-button" data-style="expand-left" data-plugin="ladda">
-                            <span class="ladda-label"><i class="icon md-arrows mr-10" aria-hidden="true"></i>
-                                Google
-                            </span>
-                        </button>
+                    </div>
                     </form>
-                    <p>Still no account? Please go to <a href="#">Sign up</a></p>
                 </div>
             </div>
 

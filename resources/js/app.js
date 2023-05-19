@@ -23,6 +23,12 @@ window.c_marker_front_cfg = [
 // window.mapLayer = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
 // window.mapLayer = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 window.mapLayer = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+
+window.uuidv4 = function() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}
 // const sio = io("http://110.5.105.26:41257");
 // const sio = io("http://127.0.0.1:3090");
 // window.sio = sio;
@@ -96,53 +102,52 @@ window._newMarker = function(latLng,customIcon = null,customToolTip = null, cust
 }
 
 console.log(window.dtHumanID(), window.dtHumanName(), window.dtHumanParse("2023-02-28 02:41:09"));
+// const button = document.querySelector("button");
 
-const button = document.querySelector("button");
+// if (window.self !== window.top) {
 
-if (window.self !== window.top) {
-
-    if (Notification?.permission === "granted") {
-        // If the user agreed to get notified
-        // Let's try to send ten notifications
-        let i = 0;
-        // Using an interval cause some browsers (including Firefox) are blocking notifications if there are too much in a certain time.
-        const interval = setInterval(() => {
-            // Thanks to the tag, we should only see the "Hi! 9" notification
-            const n = new Notification(`Hi! ${i}`, { tag: "soManyNotification" });
-            if (i === 9) {
-                clearInterval(interval);
-            }
-            i++;
-        }, 200);
-    } else if (Notification && Notification.permission !== "denied") {
-        // If the user hasn't told if they want to be notified or not
-        // Note: because of Chrome, we are not sure the permission property
-        // is set, therefore it's unsafe to check for the "default" value.
-        Notification.requestPermission((status) => {
-            // If the user said okay
-            if (status === "granted") {
-                let i = 0;
-                // Using an interval cause some browsers (including Firefox) are blocking notifications if there are too much in a certain time.
-                const interval = setInterval(() => {
-                    // Thanks to the tag, we should only see the "Hi! 9" notification
-                    const n = new Notification(`Hi! ${i}`, {
-                        tag: "soManyNotification",
-                    });
-                    if (i === 9) {
-                        clearInterval(interval);
-                    }
-                    i++;
-                }, 200);
-            } else {
-                // Otherwise, we can fallback to a regular modal console.log
-                console.log("Hi!");
-            }
-        });
-    } else {
-        // If the user refuses to get notified, we can fallback to a regular modal console.log
-        console.log("Hi!");
-    }
-}
+//     if (Notification?.permission === "granted") {
+//         // If the user agreed to get notified
+//         // Let's try to send ten notifications
+//         let i = 0;
+//         // Using an interval cause some browsers (including Firefox) are blocking notifications if there are too much in a certain time.
+//         const interval = setInterval(() => {
+//             // Thanks to the tag, we should only see the "Hi! 9" notification
+//             const n = new Notification(`Hi! ${i}`, { tag: "soManyNotification" });
+//             if (i === 9) {
+//                 clearInterval(interval);
+//             }
+//             i++;
+//         }, 200);
+//     } else if (Notification && Notification.permission !== "denied") {
+//         // If the user hasn't told if they want to be notified or not
+//         // Note: because of Chrome, we are not sure the permission property
+//         // is set, therefore it's unsafe to check for the "default" value.
+//         Notification.requestPermission((status) => {
+//             // If the user said okay
+//             if (status === "granted") {
+//                 let i = 0;
+//                 // Using an interval cause some browsers (including Firefox) are blocking notifications if there are too much in a certain time.
+//                 const interval = setInterval(() => {
+//                     // Thanks to the tag, we should only see the "Hi! 9" notification
+//                     const n = new Notification(`Hi! ${i}`, {
+//                         tag: "soManyNotification",
+//                     });
+//                     if (i === 9) {
+//                         clearInterval(interval);
+//                     }
+//                     i++;
+//                 }, 200);
+//             } else {
+//                 // Otherwise, we can fallback to a regular modal console.log
+//                 console.log("Hi!");
+//             }
+//         });
+//     } else {
+//         // If the user refuses to get notified, we can fallback to a regular modal console.log
+//         console.log("Hi!");
+//     }
+// }
 
 $(() => {
     // console.log('isJQ')

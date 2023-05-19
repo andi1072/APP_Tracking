@@ -11,7 +11,7 @@ export default defineConfig({
                 // 'resources/js/sio/socket.io.min.js',
                 
                 'resources/js/pages/device.js',
-                'resources/js/pages/geo.js',
+                // 'resources/js/pages/geo.js',
                 'resources/js/pages/tracking_map.js',
                 'resources/js/pages/tracking_status.js',
                 'resources/js/pages/tracking_geo.js',
@@ -25,7 +25,7 @@ export default defineConfig({
                 'resources/js/pages/customer.js',
                 'resources/js/pages/tollgate.js',
                 'resources/js/pages/dev_tracking_map.js',
-                'resources/js/pages/restarea.js',
+                // 'resources/js/pages/restarea.js',
             ],
             refresh: true,
         }),

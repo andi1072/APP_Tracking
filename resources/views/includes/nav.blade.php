@@ -1,6 +1,6 @@
 <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
     
-    <div class="navbar-header">
+    <div class="navbar-header" style="background-color: aliceblue;">
       <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
         data-toggle="menubar">
         <span class="sr-only">Toggle navigation</span>
@@ -11,7 +11,7 @@
         <i class="icon md-more" aria-hidden="true"></i>
       </button>
       <div class="navbar-brand navbar-brand-center">
-        <img class="navbar-brand-logo" src="{{ asset('assets/images/logo-xenxor.png') }}" title="XENXOR">
+        <img class="navbar-brand-logo" src="{{ asset('assets/images/TRANSDIGI.png') }}" title="TRANSDIGI ADMINISTRATOR">
         <span class="navbar-brand-text hidden-xs-down"></span>
       </div>
       <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
@@ -50,7 +50,6 @@
   
         <!-- Navbar Toolbar Right -->
         <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-          
           {{-- <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" title="Notifications"
               aria-expanded="false" data-animation="scale-up" role="button">

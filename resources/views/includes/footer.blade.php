@@ -1,8 +1,8 @@
 <footer class="site-footer">
     <div class="site-footer-legal">
         © 2023
-        <a href="https://bht.co.id">
-            Bagus Harapan Tritunggal
+        <a href="https://transdigi.co.id">
+            TRANSDIGI
         </a>
     </div>
     <div class="site-footer-right">
