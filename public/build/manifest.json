@@ -69,6 +69,11 @@
     "isEntry": true,
     "src": "resources/js/pages/resource_monitor.js"
   },
+  "resources/js/pages/restarea.js": {
+    "file": "assets/restarea-583b77b9.js",
+    "isEntry": true,
+    "src": "resources/js/pages/restarea.js"
+  },
   "resources/js/pages/toll_map.js": {
     "file": "assets/toll_map-f3d54ae5.js",
     "imports": [
