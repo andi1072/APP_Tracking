@@ -174,7 +174,7 @@ $('#formGeo').submit(
                 $('#formGeo').css("opacity", "");
                 var r = res.msg;
                 if (r.code === 200) {
-                    sio.emit('trx_downlink', '{POLYGONLOAD}');
+                    // sio.emit('trx_downlink', '{POLYGONLOAD}');
                     swal({
                         title: "Success",
                         text: "Continue editing?",

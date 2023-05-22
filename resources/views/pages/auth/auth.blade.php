@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
+    @section('page_title')
+        {{ "Login" }}
+    @endsection
 <head>
     @include('includes.head')
     <link rel="stylesheet" href="{{ asset('global/vendor/ladda/ladda.css')}}">
