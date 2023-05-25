@@ -132,9 +132,14 @@ Route::group(['middleware' => 'chk'], function () {
             Route::get('js/tollsectionpoint','tollsectionpoint_js')->name('tollsectionpoint_js');
             Route::get('js/sel_device','device_select_js')->name('device_select_js');
             
-            Route::get('/','index')->name('dev_src_monitor');
+            Route::get('device_mon','index')->name('dev_src_monitor');
             Route::get('monitor/devices','devices_live')->name('devices_live');
             Route::get('tracking/map','tracking_map')->name('dev_tracking_map');
+            Route::group([
+                'prefix' => 'mlff',
+            ], function() {
+                Route::get('history/section','mlff_history_section')->name('mlff_history_section');
+            });
         });
     });
     Route::controller(DataController::class)->group(function () {

@@ -179,6 +179,12 @@
                         <span class="site-menu-title">Tracking Map</span>
                     </a>
                 </li>
+                <li class="site-menu-item {{ \Hlp::chkActive(route('mlff_history_section')) }}">
+                    <a class="animsition-link" href="{{ route('mlff_history_section') }}">
+                        <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
+                        <span class="site-menu-title">MLFF History Toll Section</span>
+                    </a>
+                </li>
                 @endif
             </ul>
             {{-- <div class="site-menubar-section">

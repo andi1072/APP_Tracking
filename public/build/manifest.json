@@ -117,7 +117,7 @@
     "src": "resources/js/pages/tracking_map.js"
   },
   "resources/js/pages/tracking_mlff.js": {
-    "file": "assets/tracking_mlff-3ce40d66.js",
+    "file": "assets/tracking_mlff-003f2445.js",
     "imports": [
       "_leaflet-svg-shape-markers-8f7f1e58.js",
       "_leaflet.rotatedMarker-2d7b659f.js",

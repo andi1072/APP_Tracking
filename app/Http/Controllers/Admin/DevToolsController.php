@@ -46,4 +46,8 @@ class DevToolsController extends Controller
     public function tracking_map() {
         return view("pages.devtools.tracking_map");
     }
+
+    public function mlff_history_section() {
+        return view("pages.devtools.mlff_history_section");
+    }
 }

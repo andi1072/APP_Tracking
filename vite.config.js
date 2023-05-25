@@ -26,6 +26,7 @@ export default defineConfig({
                 'resources/js/pages/tollgate.js',
                 'resources/js/pages/dev_tracking_map.js',
                 'resources/js/pages/restarea.js',
+                'resources/js/pages/mlff_history_section.js',
             ],
             refresh: true,
         }),

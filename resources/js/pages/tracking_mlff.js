@@ -33,6 +33,7 @@ $('#tblmlfflist tbody').on( 'click', 'button.btnview', function () {
 });
 
 $.get(url + `/tracking/detail/js/mlff/${device_id}`, function(res) {
+    console.log(res)
     $.each(res.mlffHistoryData.data, function(k, v) {
         var _declareExit = '-', _nameExit = '-',_secExit = '-'
         if (v.fddeclaration_exit) {
