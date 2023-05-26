@@ -64,6 +64,11 @@
     "isEntry": true,
     "src": "resources/js/pages/live_all_devices.js"
   },
+  "resources/js/pages/mlff_history_section.js": {
+    "file": "assets/mlff_history_section-3816cda9.js",
+    "isEntry": true,
+    "src": "resources/js/pages/mlff_history_section.js"
+  },
   "resources/js/pages/resource_monitor.js": {
     "file": "assets/resource_monitor-f888e1c5.js",
     "isEntry": true,
@@ -117,7 +122,7 @@
     "src": "resources/js/pages/tracking_map.js"
   },
   "resources/js/pages/tracking_mlff.js": {
-    "file": "assets/tracking_mlff-003f2445.js",
+    "file": "assets/tracking_mlff-d8fcd7e5.js",
     "imports": [
       "_leaflet-svg-shape-markers-8f7f1e58.js",
       "_leaflet.rotatedMarker-2d7b659f.js",

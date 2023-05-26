@@ -33,7 +33,7 @@ $('#tblmlfflist tbody').on( 'click', 'button.btnview', function () {
 });
 
 $.get(url + `/tracking/detail/js/mlff/${device_id}`, function(res) {
-    console.log(res)
+    // console.log(res)
     $.each(res.mlffHistoryData.data, function(k, v) {
         var _declareExit = '-', _nameExit = '-',_secExit = '-'
         if (v.fddeclaration_exit) {
@@ -79,6 +79,7 @@ $('#modallog').on('hidden.bs.modal', function () {
 });
 
 function pointLines(v,_lRelayLine) {
+    bounds_group = new L.featureGroup([]);
     var json_line_relay = {
         type: "FeatureCollection",
         name: "line_relay",

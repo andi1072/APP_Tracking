@@ -47,6 +47,22 @@ class DevToolsController extends Controller
         return view("pages.devtools.tracking_map");
     }
 
+    public function mlff_history_section_js(Request $request) {
+        $did = $request->input('did');
+        $res = Hlp::apiGet('/devtools/mlff/section/history/' . $did);
+        return response()->json([
+            'data' => $res->data
+        ], 200);
+    }
+
+    public function mlff_history_section_log_js(Request $request) {
+        $section_history = $request->input('section_history');
+        $res = Hlp::apiGet('/devtools/mlff/section/history/log/' . $section_history);
+        return response()->json([
+            'data' => $res
+        ], 200);
+    }
+
     public function mlff_history_section() {
         return view("pages.devtools.mlff_history_section");
     }

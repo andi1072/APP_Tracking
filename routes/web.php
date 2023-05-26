@@ -138,6 +138,9 @@ Route::group(['middleware' => 'chk'], function () {
             Route::group([
                 'prefix' => 'mlff',
             ], function() {
+                Route::get('js/history/section','mlff_history_section_js')->name('mlff_history_section_js');
+                Route::get('js/history/section/log','mlff_history_section_log_js')->name('mlff_history_section_log_js');
+                
                 Route::get('history/section','mlff_history_section')->name('mlff_history_section');
             });
         });
