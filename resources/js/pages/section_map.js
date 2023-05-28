@@ -139,7 +139,7 @@ map.on('click', function (e) {
                     iconSize:     [8, 16],
                     iconAnchor:   [5, 14],
                 }),
-                interactive: true
+                interactive: false
             });
             _nMkr.addTo(map);
             // newMkrCollection.push(_nMkr);
