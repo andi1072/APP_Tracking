@@ -425,7 +425,9 @@ function startReplay() {
 $("#sel_device").select2();
 axios.get(`${window.burl}/devtools/js/sel_device`).then(rr => {
     $("#sel_device").select2({
-        data: rr.data.devices
+        data: rr.data.devices,
+        placeholder: 'Select device...',
+        width: 'style',
     });
 }).catch(err => {
     console.log(err);

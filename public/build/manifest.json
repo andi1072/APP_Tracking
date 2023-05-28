@@ -30,7 +30,7 @@
     "src": "resources/js/pages/customer.js"
   },
   "resources/js/pages/dev_tracking_map.js": {
-    "file": "assets/dev_tracking_map-2a41e4c0.js",
+    "file": "assets/dev_tracking_map-0e1eb3f5.js",
     "imports": [
       "_leaflet.rotatedMarker-2d7b659f.js",
       "_leaflet-svg-shape-markers-8f7f1e58.js",
