@@ -21,7 +21,7 @@ window.c_marker_front_cfg = [
     [0, -15] //popancor
 ]
 // window.mapLayer = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
-// window.mapLayer = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+window.mapLayerOpenStreet = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 window.mapLayer = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
 
 window.uuidv4 = function() {

@@ -11,7 +11,9 @@ body {
 #objmap,
 #trackingmap,
 #statusmap,
-#livemap ,#trackingmlff_log{
+#livemap ,
+#trackingmlff_log,
+#sectionmap{
     height: 500px;
 }
 /* .leaflet-popup-content {

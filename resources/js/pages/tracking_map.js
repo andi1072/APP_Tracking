@@ -118,14 +118,14 @@ $('#formMapTrack').submit(function (e) {
                     "coordinates": [v.polygon]
                 }
             })
-            _lPolyGate.push({
-                "type": "Feature",
-                "properties": v,
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [v.gate_lon, v.gate_lat]
-                }
-            })
+            // _lPolyGate.push({
+            //     "type": "Feature",
+            //     "properties": v,
+            //     "geometry": {
+            //         "type": "Point",
+            //         "coordinates": [v.gate_lon, v.gate_lat]
+            //     }
+            // })
             // console.log(_lPolyGate)
         });
         if ( res.relay.data.length != 0) {

@@ -113,13 +113,15 @@ Route::group(['middleware' => 'chk'], function () {
         Route::group([
             'prefix' => 'tollroute',
         ], function() {
-            Route::get('js','list_js')->name('tollroute_list_js');
+            // Route::get('js','list_js')->name('tollroute_list_js');
             Route::post('js/add','create_update')->name('tollroute_create_update_js');
-            Route::get('js/detail/{geoid}/point','detail_point')->name('tollroute_detail_point_js');
+            // Route::get('js/detail/{geoid}/point','detail_point')->name('tollroute_detail_point_js');
             
-            Route::get('list','list')->name('tollroute_list');
-            Route::get('add', 'formindex')->name('tollroute_create_index');
-            Route::get('detail/{geoid}', 'detail')->name('tollroute_detail');
+            // Route::get('list','list')->name('tollroute_list');
+            // Route::get('add', 'formindex')->name('tollroute_create_index');
+            // Route::get('detail/{geoid}', 'detail')->name('tollroute_detail');
+
+            Route::get('map', 'section_form_index')->name('section_form_index');
         });
     });
 

@@ -100,8 +100,8 @@
                 </li>
                 @if (Cookie::get('USRID') == '72252c8a-8947-4300-b933-90609c37a55d')
                 
-                    <li class="site-menu-item ">
-                        <a class="animsition-link" href="#">
+                    <li class="site-menu-item {{ \Hlp::chkActive(route('section_form_index')) }}">
+                        <a class="animsition-link" href="{{ route('section_form_index') }}">
                             <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
                             <span class="site-menu-title">Toll Section</span>
                         </a>

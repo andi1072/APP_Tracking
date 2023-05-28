@@ -19,7 +19,7 @@ class TollRouteController extends Controller
         ], 200);
     }
 
-    public function create_update(Request $request) {
+    public function _create_update(Request $request) {
         $validator = Validator::make($request->all(), [
             'txtName' => 'required',
             'txtAddress' => 'required',
@@ -110,4 +110,53 @@ class TollRouteController extends Controller
             ],
         ]);
     }
+    
+    // ######### SECTION MAP ##########
+
+    public function create_update(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'latlng' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'code' => 442,
+                'msg' => $validator->messages()->first(),
+            ]);
+        }
+
+        $res = $this->updateSection($request);
+
+        return response()->json([
+            'msg' => $res
+        ]);
+    }
+
+    function updateSection($re) {
+        $body = [
+            'latlng' => $re->input('latlng'),
+        ];
+        $r = Hlp::apiPost('/tollroute', $body);
+        $res = $r->object();
+        if (isset($res->error)) {
+            if ($res->error == "Unauthorized") {
+                return 'Unauthorized.';
+            } else {
+                return [
+                    'obj' => $res->error,
+                    'code' => 404
+                ];
+            }
+        }
+        return [
+            'obj' => $r->object(),
+            'code' => $r->getStatusCode()
+        ];
+    }
+
+    public function section_form_index() {
+        return view('pages.tollroute.form_section');
+    }
+
+    // ################################
+
 }

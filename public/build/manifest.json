@@ -12,12 +12,12 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-cb6785bf.css",
+    "file": "assets/app-d948abcf.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-369f58f6.js",
+    "file": "assets/app-9a24bd70.js",
     "imports": [
       "__commonjsHelpers-725317a4.js"
     ],
@@ -55,7 +55,7 @@
     "src": "resources/js/pages/geomlff.js"
   },
   "resources/js/pages/live_all_devices.js": {
-    "file": "assets/live_all_devices-e477736d.js",
+    "file": "assets/live_all_devices-331629f8.js",
     "imports": [
       "_leaflet.rotatedMarker-2d7b659f.js",
       "_leaflet-svg-shape-markers-8f7f1e58.js",
@@ -78,6 +78,14 @@
     "file": "assets/restarea-583b77b9.js",
     "isEntry": true,
     "src": "resources/js/pages/restarea.js"
+  },
+  "resources/js/pages/section_map.js": {
+    "file": "assets/section_map-830b1cba.js",
+    "imports": [
+      "_leaflet-svg-shape-markers-8f7f1e58.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/pages/section_map.js"
   },
   "resources/js/pages/toll_map.js": {
     "file": "assets/toll_map-f3d54ae5.js",
@@ -112,7 +120,7 @@
     "src": "resources/js/pages/tracking_live.js"
   },
   "resources/js/pages/tracking_map.js": {
-    "file": "assets/tracking_map-3744ad40.js",
+    "file": "assets/tracking_map-6a5ab546.js",
     "imports": [
       "_leaflet.rotatedMarker-2d7b659f.js",
       "_leaflet-svg-shape-markers-8f7f1e58.js",
