@@ -87,10 +87,10 @@ function __save(__latlng) {
         , cache: false
         , processData: false
         , beforeSend: function () {
-            $('#formSection').css("opacity", ".5");
+            // $('#formSection').css("opacity", ".5");
         }
         , success: function (res) {
-            $('#formSection').css("opacity", "");
+            // $('#formSection').css("opacity", "");
             var r = res.msg;
             if (r.code === 200) {
                 toastr.success('Saved.', 'Error');
