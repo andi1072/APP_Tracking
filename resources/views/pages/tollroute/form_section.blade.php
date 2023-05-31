@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{ asset('global/vendor/bootstrap-select/bootstrap-select.css')}}">
 <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}" />
 <link rel="stylesheet" href="{{ asset('leaflet/fullscreen/leaflet.fullscreen.css')}}" />
+<link rel="stylesheet" href="{{ asset('leaflet/geocoder/Control.Geocoder.css')}}" />
 <style>
     /* #crosshair-button {
   position: absolute;
@@ -64,6 +65,7 @@
     <script src="{{ asset('global/vendor/ladda/spin.min.js')}}"></script>
     <script src="{{ asset('global/vendor/ladda/ladda.min.js')}}"></script>
     <script src="{{ asset('global/js/Plugin/ladda.js')}}"></script>
+    <script src="{{ asset('leaflet/geocoder/Control.Geocoder.min.js')}}"></script>
     @endpush
     @vite([
     'resources/js/pages/section_map.js',

@@ -80,7 +80,7 @@
     "src": "resources/js/pages/restarea.js"
   },
   "resources/js/pages/section_map.js": {
-    "file": "assets/section_map-58865130.js",
+    "file": "assets/section_map-1b2ff1b2.js",
     "imports": [
       "_leaflet-svg-shape-markers-8f7f1e58.js"
     ],

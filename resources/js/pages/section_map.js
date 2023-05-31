@@ -1,5 +1,4 @@
 import 'leaflet-svg-shape-markers';
-
 var map = L.map('sectionmap', {
     minZoom: 5,
     attributionControl: false,
@@ -12,7 +11,7 @@ var _tileLayer = L.tileLayer(window.mapLayerOpenStreet, {
     attribution: '',
 });
 _tileLayer.addTo(map);
-
+L.Control.geocoder().addTo(map);
 function pointing_section(map) {
     var jSection = {
         type: "FeatureCollection",
