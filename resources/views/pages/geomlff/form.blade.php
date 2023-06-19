@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('global/vendor/bootstrap-sweetalert/sweetalert.css')}}">
     <link rel="stylesheet" href="{{ asset('global/vendor/select2/select2.css')}}">
     <link rel="stylesheet" href="{{ asset('global/vendor/bootstrap-select/bootstrap-select.css')}}">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <link rel="stylesheet" href="{{ asset('leaflet/geocoder/Control.Geocoder.css')}}" />
     @endpush
     <div class="page-header page-header-bordered">
         <h1 class="page-title">{{ $cfg['title'] }}</h1>
@@ -145,7 +145,7 @@
     <script src="{{ asset('leaflet/draw/edit/handler/Edit.CircleMarker.js')}}"></script>
     <script src="{{ asset('leaflet/draw/edit/handler/Edit.Circle.js')}}"></script>
     <script src="{{ asset('leaflet/fullscreen/Leaflet.fullscreen.min.js')}}"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="{{ asset('leaflet/geocoder/Control.Geocoder.min.js')}}"></script>
     <script>
         $("select[name=gate_declare]").val(`{{ isset($d) ? $d->fntype : 0 }}`);
     </script>
