@@ -249,9 +249,9 @@ function __delete(__latlng) {
             if (r.code === 200) {
                 toastr.success('Point deleted.', 'Success');
                 __scanPoint(lat,lon);
-                map.removeLayer(self.Polygon)
+                // self.Polygon.remove()
+                map.addControl(drawControlFull);
             } else {
-                console.log(res)
                 toastr.error(res.msg.obj, 'Error');
             }
 
