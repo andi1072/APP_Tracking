@@ -72,14 +72,14 @@
             window.location.href = sURL.replace(":id", data[0]);
         });
         
-        // $.get("{{ route('tracking_list_js') }}", function(res) {
-        //     console.log(res)
-            // $.each(res.data, function(k, v) {
-            //     tbldevices.row.add([
-            //         v.ftdevice_id, v.ftdevice_name ,v.ftasset_id,v.ftasset_name,window.dtHumanParse(v.created_at)
-            //     ]).draw(true);
-            // });
-        // });
+        $.get("{{ route('tracking_list_js') }}", function(res) {
+            console.log(res.data)
+            $.each(res.data, function(k, v) {
+                tbldevices.row.add([
+                    v.ftdevice_id, v.ftdevice_name ,v.ftasset_id,v.ftasset_name,window.dtHumanParse(v.created_at)
+                ]).draw(true);
+            });
+        });
     </script>
     @endpush
 </x-default>
