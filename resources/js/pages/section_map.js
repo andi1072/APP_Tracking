@@ -1,11 +1,4 @@
 import 'leaflet-svg-shape-markers';
-// var map = L.map('sectionmap', {
-//     minZoom: 5,
-//     attributionControl: false,
-//     fullscreenControl: true,
-// }).setView([
-//     0.33995192349439596, 120.3733680354565
-// ], 5), myFGMarker = new L.FeatureGroup(), _lGate = [], _lSection = [], lSection;
 
 var osm = L.tileLayer(window.mapLayerOpenStreet, { minZoom: 5 }),
     map = new L.Map('sectionmap', {
@@ -27,7 +20,7 @@ L.control.layers({
         attribution: 'google'
     })
 }, {
-    'drawlayer': drawnItems
+    // 'drawlayer': drawnItems
 }, {
     position: 'topright',
     collapsed: false
