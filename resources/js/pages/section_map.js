@@ -14,7 +14,7 @@ var osm = L.tileLayer(window.mapLayerOpenStreet, { minZoom: 5 }),
         fullscreenControl: true,
     }),
     drawnItems = L.featureGroup(),
-    _lSection = [], lSection, geoTmp = [], _scanedPoint = [];
+    _lSection = [], lSection, geoTmp = [];
 
 var _tileLayer = L.tileLayer(window.mapLayerOpenStreet, {
     attribution: '',
@@ -70,11 +70,11 @@ self.drawControlEdit = new L.Control.Draw({
 
 
 map.on(L.Draw.Event.CREATED, function (event) {
-    if (self.Polygon || self.Circle) {
-        alert('You can only create 1 location per geofence');
-        return null;
-    }
     var layer = event.layer;
+    // if (self.Polygon || self.Circle) {
+    //     alert('You can only create 1 location per geofence');
+    //     return null;
+    // }
     if (layer._latlng && layer._mRadius) {
         window.circle = layer;
     } else if (layer._latlngs && layer._bounds) {
@@ -97,7 +97,7 @@ map.on(L.Draw.Event.CREATED, function (event) {
 
     self.drawControlFull.remove();
     // self.drawControlEdit.addTo(map);
-    drawnItems.addLayer(layer);
+    drawnItems.addLayer(self.Polygon);
     // layerTmp = layer;
 
     var __resDeleted = '', __resDeletedTmp = '';
@@ -184,18 +184,24 @@ $("input[name='ckScanPoints']").change(function () {
     _switchBtn = 0;
     map.removeLayer(drawnItems)
     map.removeControl(drawControlFull)
+    __remNewMkr()
+    __scanPoint(lat,lon);
 });
 
 $("input[name='ckAddPoints']").change(function () {
     _switchBtn = 1;
     map.removeLayer(drawnItems)
     map.removeControl(drawControlFull)
+    __remNewMkr()
+    __scanPoint(lat,lon);
 });
 
 $("input[name='ckDelPoints']").change(function () {
     _switchBtn = 2;
-    drawnItems.addTo(map)
+    // drawnItems.addTo(map)
     map.addControl(drawControlFull);
+    __remNewMkr()
+    __scanPoint(lat,lon);
 });
 
 function __save(__latlng) {
@@ -226,7 +232,14 @@ function __save(__latlng) {
     });
 }
 
-var lat = 0, lon = 0;
+var lat = 0, lon = 0, _nMkrArr = [];
+
+function __remNewMkr() {
+    $.each(_nMkrArr,function (k, v) {
+        map.removeLayer(_nMkrArr[k])
+    });
+    _nMkrArr = [];
+}
 
 function __delete(__latlng) {
     var fd = new FormData();
@@ -251,6 +264,8 @@ function __delete(__latlng) {
                 __scanPoint(lat,lon);
                 // self.Polygon.remove()
                 map.addControl(drawControlFull);
+                map.removeLayer(self.Polygon);
+                __remNewMkr()
             } else {
                 toastr.error(res.msg.obj, 'Error');
             }
@@ -271,15 +286,19 @@ map.on('click', function (e) {
             __scanPoint(lat,lon);
             break;
         case 1:
+            if (_nMkr) {
+                map.removeLayer(_nMkr)
+            }
             var _nMkr = window._newMarker(latlng, {
                 icon: L.icon({
                     iconUrl: '/assets/images/leaflet/marker-reddot.png',
                     iconSize: [8, 16],
-                    iconAnchor: [5, 14],
+                    iconAnchor: [5, 12],
                 }),
                 interactive: false
             });
             _nMkr.addTo(map);
+            _nMkrArr.push(_nMkr)
             // newMkrCollection.push(_nMkr);
             __save(JSON.stringify(_nMkr._latlng))
             break;
@@ -303,7 +322,6 @@ function __scanPoint(lat,lon) {
                 properties: {},
                 geometry: { type: "Point", coordinates: [parseFloat(v.fflon), parseFloat(v.fflat)] },
             });
-            // _scanedPoint.push([parseFloat(v.fflon), parseFloat(v.fflat)])
         })
 
         if (res.data.length != 0) {
