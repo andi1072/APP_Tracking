@@ -101,7 +101,7 @@ window._newMarker = function(latLng,customIcon = null,customToolTip = null, cust
     return mkr;
 }
 
-console.log(window.dtHumanID(), window.dtHumanName(), window.dtHumanParse("2023-02-28 02:41:09"));
+console.log(window.dtHumanID(), window.dtHumanName());
 // const button = document.querySelector("button");
 
 // if (window.self !== window.top) {

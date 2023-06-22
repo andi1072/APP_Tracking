@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}" />
 <link rel="stylesheet" href="{{ asset('leaflet/fullscreen/leaflet.fullscreen.css')}}" />
 <link rel="stylesheet" href="{{ asset('leaflet/geocoder/Control.Geocoder.css')}}" />
+<link rel="stylesheet" href="{{ asset('leaflet/draw/leaflet.draw.css')}}" />
 <style>
     /* #crosshair-button {
   position: absolute;
@@ -44,6 +45,10 @@
                                         <input type="radio" id="ckAddPoints" name="ckAddPoints" autocomplete="off" value="1" />
                                         <i class="icon md-pin text-active" aria-hidden="true"></i>Add Points
                                     </label>
+                                    <label class="btn btn-danger">
+                                        <input type="radio" id="ckDelPoints" name="ckDelPoints" autocomplete="off" value="2" />
+                                        <i class="icon md-pin text-active" aria-hidden="true"></i>Delete Points
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -60,12 +65,44 @@
         </div>
     </div>
     @push('isscript')
-    <script src="{{ asset('leaflet/leaflet.js')}}"></script>
-    <script src="{{ asset('leaflet/fullscreen/Leaflet.fullscreen.min.js')}}"></script>
     <script src="{{ asset('global/vendor/ladda/spin.min.js')}}"></script>
     <script src="{{ asset('global/vendor/ladda/ladda.min.js')}}"></script>
     <script src="{{ asset('global/js/Plugin/ladda.js')}}"></script>
+
+    <script src="{{ asset('leaflet/leaflet.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/Leaflet.draw.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/Leaflet.Draw.Event.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/Toolbar.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/Tooltip.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/ext/GeometryUtil.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/ext/LatLngUtil.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/ext/LineUtil.Intersect.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/ext/Polygon.Intersect.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/ext/Polyline.Intersect.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/ext/TouchEvents.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/draw/DrawToolbar.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/draw/handler/Draw.Feature.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/draw/handler/Draw.SimpleShape.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/draw/handler/Draw.Polyline.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/draw/handler/Draw.Marker.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/draw/handler/Draw.Circle.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/draw/handler/Draw.CircleMarker.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/draw/handler/Draw.Polygon.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/draw/handler/Draw.Rectangle.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/edit/EditToolbar.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/edit/handler/EditToolbar.Edit.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/edit/handler/EditToolbar.Delete.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/Control.Draw.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/edit/handler/Edit.Poly.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/edit/handler/Edit.SimpleShape.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/edit/handler/Edit.Rectangle.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/edit/handler/Edit.Marker.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/edit/handler/Edit.CircleMarker.js')}}"></script>
+    <script src="{{ asset('leaflet/draw/edit/handler/Edit.Circle.js')}}"></script>
+    <script src="{{ asset('leaflet/fullscreen/Leaflet.fullscreen.min.js')}}"></script>
     <script src="{{ asset('leaflet/geocoder/Control.Geocoder.min.js')}}"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/turf/turf.min.js"></script> --}}
+
     @endpush
     @vite([
     'resources/js/pages/section_map.js',

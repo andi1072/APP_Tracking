@@ -17,7 +17,7 @@
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-9a24bd70.js",
+    "file": "assets/app-34a95e79.js",
     "imports": [
       "__commonjsHelpers-725317a4.js"
     ],
@@ -80,7 +80,7 @@
     "src": "resources/js/pages/restarea.js"
   },
   "resources/js/pages/section_map.js": {
-    "file": "assets/section_map-1b2ff1b2.js",
+    "file": "assets/section_map-f8292e1c.js",
     "imports": [
       "_leaflet-svg-shape-markers-8f7f1e58.js"
     ],
