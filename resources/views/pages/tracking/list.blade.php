@@ -48,6 +48,19 @@
     <script src="{{ asset('global/js/Plugin/datatables.js')}}"></script>
     <script>
         var tbldevices = $('#tbldevices').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                url: "{{ route('tracking_list_js') }}"
+            },
+            "columns": [
+                { data: 'ftdevice_id' },
+                { data: 'ftdevice_name' },
+                { data: 'ftasset_id' },
+                { data: 'ftasset_name' },
+                { data: 'created_at' },
+                { data: 'Action' },
+            ],
             "lengthChange": false
             , order: [
                 [5, 'desc']
@@ -69,17 +82,19 @@
         $('#tbldevices tbody').on( 'click', 'button.btnview', function () {
             var data = tbldevices.row($(this).parents('tr')).data(), sURL;
             sURL = `{{ route('tracking_status', ':id') }}`;
-            window.location.href = sURL.replace(":id", data[0]);
+            // console.log(data.ftdevice_id)
+            window.location.href = sURL.replace(":id", data.ftdevice_id);
         });
         
-        $.get("{{ route('tracking_list_js') }}", function(res) {
-            console.log(res.data)
-            $.each(res.data, function(k, v) {
-                tbldevices.row.add([
-                    v.ftdevice_id, v.ftdevice_name ,v.ftasset_id,v.ftasset_name,window.dtHumanParse(v.created_at)
-                ]).draw(true);
-            });
-        });
+        // $.get("{{ route('tracking_list_js') }}", function(res) {
+        //     console.log(res.data)
+        //     // $.each(res.data, function(k, v) {
+        //     //     tbldevices.row.add([
+        //     //         v.ftdevice_id, v.ftdevice_name ,v.ftasset_id,v.ftasset_name,window.dtHumanParse(v.created_at)
+        //     //     ]).draw(true);
+        //     // });
+        // });
+
     </script>
     @endpush
 </x-default>

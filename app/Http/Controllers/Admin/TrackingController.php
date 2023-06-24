@@ -8,13 +8,26 @@ use Hlp;
 use Carbon\Carbon;
 class TrackingController extends Controller
 {
-    public function device_list_js() {
-        $res = Hlp::apiGet('/tracking');
+    public function device_list_js(Request $request) {
+        
+
+        $draw = $request->get('draw');
+        $start = $request->get('start');
+        $length = $request->get('length');
+        $filter = $request->get('search');
+
+        // dd($request->all(),$filter);
+        $search = (isset($filter['value']))? $filter['value'] : null;
+        $res = Hlp::apiGet('/tracking?draw='.$draw.'&start='.$start.'&length='.$length.'&filter='.$search);
         if (!$res) {
             return response()->json([], 404);
         }
+
         return response()->json([
-            'data' => $res->data
+            'data' => $res->data,
+            'draw' => $draw,
+            'recordsTotal' => $res->total,
+            'recordsFiltered' => $res->total,
         ], 200);
     }
 
