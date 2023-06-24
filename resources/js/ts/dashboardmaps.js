@@ -59,7 +59,7 @@ var contentInfoWindow = function(v) {
 // }
 
 $.get(url + "/dashboard/js", function (res) {
-    // console.log(res.data)
+    // console.log(res.data.data)
     $.each(res.data.data, function (k, v) {
         var marker = _newMarker({ lat: v.fflat, lng: v.fflon }, {
                 icon : L.icon({
