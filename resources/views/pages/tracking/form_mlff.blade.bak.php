@@ -64,20 +64,28 @@
                                 Toll Declaration
                             </a>
                         </li>
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('tracking_live',$deviceData->deviceRelay->ftdevice_id) }}" class="nav-link small text-uppercase">
+                                🔴Live Tracking
+                            </a>
+                        </li> --}}
                     </ul>
                     <div class="py-4"></div>
                     <div id="tabsContent" class="tab-content">
                         <div class="tab-pane fade active show">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <table class="table table-hover dataTable table-striped w-full" id="tblmlff_sec">
+                                    <table class="table table-hover dataTable table-striped w-full" id="tblmlfflist">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>Entry Time</th>
-                                                <th>Entry Location</th>
+                                                <th>Entry Gate</th>
+                                                <th>Toll Sec. Entry</th>
                                                 <th>Exit Time</th>
-                                                <th>Exit Location</th>
+                                                <th>Exit Gate</th>
+                                                <th>Toll Sec. Exit</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -100,6 +108,6 @@
     <script src="{{ asset('global/js/Plugin/datatables.js')}}"></script>
     @endpush
     @vite([
-    'resources/js/pages/tracking_mlff_history_section.js',
+    'resources/js/pages/tracking_mlff.js',
     ])
 </x-default>

@@ -139,6 +139,11 @@
     "isEntry": true,
     "src": "resources/js/pages/tracking_mlff.js"
   },
+  "resources/js/pages/tracking_mlff_history_section.js": {
+    "file": "assets/tracking_mlff_history_section-0b9ceeba.js",
+    "isEntry": true,
+    "src": "resources/js/pages/tracking_mlff_history_section.js"
+  },
   "resources/js/pages/tracking_status.js": {
     "file": "assets/tracking_status-edec5ed6.js",
     "isEntry": true,

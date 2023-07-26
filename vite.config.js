@@ -28,6 +28,7 @@ export default defineConfig({
                 'resources/js/pages/restarea.js',
                 'resources/js/pages/mlff_history_section.js',
                 'resources/js/pages/section_map.js',
+                'resources/js/pages/tracking_mlff_history_section.js',
             ],
             refresh: true,
         }),
