@@ -131,6 +131,26 @@ function pointLines(v, _lRelayLine) {
         bounds_group = new L.featureGroup([]);
         var v = feature.properties;
 
+        // _mkrEntry = window._newMarker(
+        //     {
+        //         lat: parseFloat(v.ffentry_lat),
+        //         lng: parseFloat(v.ffentry_lon)
+        //     }, {
+        //     icon: L.icon({
+        //         iconUrl: `${window.burl}/assets/images/leaflet/entry.png`,
+        //         iconSize: [30, 30],
+        //         iconAnchor: [16, 25],
+        //         popupAnchor: [0, -15]
+        //     })
+        // }, v.gate_name,
+        //     `<h3 class="h6 text-center d-block text-uppercase font-weight-bold">INFO</h3><span class="bottom-line d-block mx-auto mt-3 mb-4"></span>` +
+        //     `<div class="row my-2 mx-auto"><div class="col text-right border-right border-dark">` +
+        //     `GATE NAME</div><div class="col-7 pl-4">${v.gate_name}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
+        //     `DATE TIME</div><div class="col-7 pl-4">${window.dtHumanParse(v.fddeclaration)}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
+        //     `TOLL SECTION</div><div class="col-7 pl-4">${v.ftsection}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
+        //     `DECLARATION</div><div class="col-7 pl-4">${v.ftdeclaration_type}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
+        //     `PAYMENT TYPE</div><div class="col-7 pl-4">${v.ftpayment_type}</div></div>`
+        // ).addTo(map);
         _mkrEntry = window._newMarker(
             {
                 lat: parseFloat(v.ffentry_lat),
@@ -138,21 +158,33 @@ function pointLines(v, _lRelayLine) {
             }, {
             icon: L.icon({
                 iconUrl: `${window.burl}/assets/images/leaflet/entry.png`,
-                iconSize: [30, 30],
-                iconAnchor: [16, 25],
+                iconSize: [40, 40],
+                iconAnchor: [19, 34],
                 popupAnchor: [0, -15]
             })
-        }, v.gate_name,
-            `<h3 class="h6 text-center d-block text-uppercase font-weight-bold">INFO</h3><span class="bottom-line d-block mx-auto mt-3 mb-4"></span>` +
-            `<div class="row my-2 mx-auto"><div class="col text-right border-right border-dark">` +
-            `GATE NAME</div><div class="col-7 pl-4">${v.gate_name}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
-            `DATE TIME</div><div class="col-7 pl-4">${window.dtHumanParse(v.fddeclaration)}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
-            `TOLL SECTION</div><div class="col-7 pl-4">${v.ftsection}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
-            `DECLARATION</div><div class="col-7 pl-4">${v.ftdeclaration_type}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
-            `PAYMENT TYPE</div><div class="col-7 pl-4">${v.ftpayment_type}</div></div>`
-        ).addTo(map);
+        }, v.gate_name,null).addTo(map);
 
         if (v.fdexit_time) {
+            // _mkrExit = window._newMarker(
+            //     {
+            //         lat: parseFloat(v.ffexit_lat),
+            //         lng: parseFloat(v.ffexit_lon)
+            //     }, {
+            //     icon: L.icon({
+            //         iconUrl: `${window.burl}/assets/images/leaflet/exit.png`,
+            //         iconSize: [30, 30],
+            //         iconAnchor: [16, 25],
+            //         popupAnchor: [0, -15]
+            //     })
+            // }, v.gate_name,
+            //     `<h3 class="h6 text-center d-block text-uppercase font-weight-bold">INFO</h3><span class="bottom-line d-block mx-auto mt-3 mb-4"></span>` +
+            //     `<div class="row my-2 mx-auto"><div class="col text-right border-right border-dark">` +
+            //     `GATE NAME</div><div class="col-7 pl-4">${v.gate_exit_name}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
+            //     `DATE TIME</div><div class="col-7 pl-4">${window.dtHumanParse(v.fddeclaration_exit)}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
+            //     `TOLL SECTION</div><div class="col-7 pl-4">${v.gate_exit_ftsection}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
+            //     `DECLARATION</div><div class="col-7 pl-4">${v.ftdeclaration_exit}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
+            //     `PAYMENT TYPE</div><div class="col-7 pl-4">${v.gate_exit_ftpayment_type}</div></div>`
+            // ).addTo(map);
             _mkrExit = window._newMarker(
                 {
                     lat: parseFloat(v.ffexit_lat),
@@ -160,19 +192,11 @@ function pointLines(v, _lRelayLine) {
                 }, {
                 icon: L.icon({
                     iconUrl: `${window.burl}/assets/images/leaflet/exit.png`,
-                    iconSize: [30, 30],
-                    iconAnchor: [16, 25],
+                    iconSize: [40, 40],
+                    iconAnchor: [19, 34],
                     popupAnchor: [0, -15]
                 })
-            }, v.gate_name,
-                `<h3 class="h6 text-center d-block text-uppercase font-weight-bold">INFO</h3><span class="bottom-line d-block mx-auto mt-3 mb-4"></span>` +
-                `<div class="row my-2 mx-auto"><div class="col text-right border-right border-dark">` +
-                `GATE NAME</div><div class="col-7 pl-4">${v.gate_exit_name}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
-                `DATE TIME</div><div class="col-7 pl-4">${window.dtHumanParse(v.fddeclaration_exit)}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
-                `TOLL SECTION</div><div class="col-7 pl-4">${v.gate_exit_ftsection}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
-                `DECLARATION</div><div class="col-7 pl-4">${v.ftdeclaration_exit}</div></div><div class="row my-2 mx-auto"><div class="col-5 text-right border-right border-dark">` +
-                `PAYMENT TYPE</div><div class="col-7 pl-4">${v.gate_exit_ftpayment_type}</div></div>`
-            ).addTo(map);
+            }, v.gate_name,null).addTo(map);
         }
 
         return {
