@@ -137,7 +137,7 @@ function pointLines(v, _lRelayLine) {
                 lng: parseFloat(v.ffentry_lon)
             }, {
             icon: L.icon({
-                iconUrl: `${window.burl}/assets/images/leaflet/toll_gate.png`,
+                iconUrl: `${window.burl}/assets/images/leaflet/entry.png`,
                 iconSize: [30, 30],
                 iconAnchor: [16, 25],
                 popupAnchor: [0, -15]
@@ -159,7 +159,7 @@ function pointLines(v, _lRelayLine) {
                     lng: parseFloat(v.ffexit_lon)
                 }, {
                 icon: L.icon({
-                    iconUrl: `${window.burl}/assets/images/leaflet/exit_section.png`,
+                    iconUrl: `${window.burl}/assets/images/leaflet/exit.png`,
                     iconSize: [30, 30],
                     iconAnchor: [16, 25],
                     popupAnchor: [0, -15]
