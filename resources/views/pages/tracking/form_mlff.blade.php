@@ -75,9 +75,14 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Entry Time</th>
-                                                <th>Entry Location</th>
+                                                <th>Entry Gate</th>
+                                                <th>Entry Point</th>
+                                                <th>Entry Section</th>
                                                 <th>Exit Time</th>
-                                                <th>Exit Location</th>
+                                                <th>Exit Gate</th>
+                                                <th>Exit Point</th>
+                                                <th>Exit Section</th>
+                                                <th>Distence</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

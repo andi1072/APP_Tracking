@@ -11,7 +11,7 @@ var tblmlff_sec = $('#tblmlff_sec').DataTable({
         { 'visible': false, 'targets': [0] },
         {
             targets: -1,
-            "defaultContent": '<button class="btnview btn btn-pure btn-primary icon md-view waves-effect waves-classic">Log</button>'
+            "defaultContent": '<button class="btnview btn btn-pure btn-primary icon md-view waves-effect waves-classic">MAP</button>'
         },
     ],
 
@@ -35,19 +35,48 @@ $('#tblmlff_sec tbody').on('click', 'button.btnview', function () {
 // });
 
 var device_id = $('input[name=_deviceid]').val();
-console.log(device_id)
 axios.get(`${window.burl}/devtools/mlff/js/history/section?did=${device_id}`).then(rr => {
     if (rr.data.data.length <= 0) { return }
     $.each(rr.data.data, function (k, v) {
-        // console.log(k,v)
+        console.log(k,v)
         var _tmpExit = '-', _tmpLoc = '-';
         if (v.fdexit_time) {
             _tmpExit = window.dtHumanParse(v.fdexit_time);
             _tmpLoc = v.ftexit_location;
         }
+        // <th>#</th>
+        // <th>Entry Time</th>
+        // <th>Entry Gate</th>
+        // <th>Entry Point</th>
+        // <th>Entry Section</th>
+        // <th>Exit Time</th>
+        // <th>Exit Gate</th>
+        // <th>Exit Point</th>
+        // <th>Exit Section</th>
+        // <th>Distence</th>
 
+        // "id": "72609a19-0ecb-4159-b27f-e4b7d48c0581",
+        // "fdentry_time": "2023-08-04 04:02:35",
+        // "ftentry_gate": null,
+        // "ftentry_point": "-6.181197, 106.794144",
+        // "ftentry_section": "janger",
+        // "fdexit_time": "2023-08-04 04:06:14",
+        // "ftexit_gate": null,
+        // "ftexit_point": "-6.212467, 106.662008",
+        // "ftexit_section": null,
+        // "ffdistence_section": "15.70145641411461"
         tblmlff_sec.row.add([
-            v.id, window.dtHumanParse(v.fdentry_time), v.ftentry_location, _tmpExit, _tmpLoc
+            // v.id, window.dtHumanParse(v.fdentry_time), v.ftentry_location, _tmpExit, _tmpLoc
+            v.id,
+            window.dtHumanParse(v.fdentry_time),
+            v.ftentry_gate,
+            v.ftentry_point,
+            v.ftentry_section,
+            window.dtHumanParse(v.fdexit_time),
+            v.ftexit_gate,
+            v.ftexit_point,
+            v.ftexit_section,
+            v.ffdistence_section
         ]).draw(true);
     });
 }).catch(err => {
