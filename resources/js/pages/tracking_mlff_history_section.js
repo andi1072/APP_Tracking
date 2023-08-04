@@ -76,7 +76,7 @@ axios.get(`${window.burl}/devtools/mlff/js/history/section?did=${device_id}`).th
             v.ftexit_gate,
             v.ftexit_point,
             v.ftexit_section,
-            v.ffdistence_section
+            `${parseFloat(v.ffdistence_section).toFixed(2)} km`
         ]).draw(true);
     });
 }).catch(err => {
