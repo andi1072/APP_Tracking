@@ -65,6 +65,12 @@ axios.get(`${window.burl}/devtools/mlff/js/history/section?did=${device_id}`).th
         // "ftexit_point": "-6.212467, 106.662008",
         // "ftexit_section": null,
         // "ffdistence_section": "15.70145641411461"
+        let _avgSpeed = parseFloat(v.ffavgspeed).toFixed(2)
+        if (_avgSpeed.toString() === '0.00') {
+            _avgSpeed = '-'
+        }else{
+            _avgSpeed = _avgSpeed.toString() + ' km/h'
+        }
         tblmlff_sec.row.add([
             // v.id, window.dtHumanParse(v.fdentry_time), v.ftentry_location, _tmpExit, _tmpLoc
             v.id,
@@ -77,7 +83,7 @@ axios.get(`${window.burl}/devtools/mlff/js/history/section?did=${device_id}`).th
             v.ftexit_point,
             v.ftexit_section,
             `${parseFloat(v.ffdistence_section).toFixed(2)} km`,
-            `${parseFloat(v.ffavgspeed).toFixed(2)} km/h`
+            _avgSpeed
         ]).draw(true);
     });
 }).catch(err => {
