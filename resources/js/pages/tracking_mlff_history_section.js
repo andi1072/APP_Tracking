@@ -38,7 +38,7 @@ var device_id = $('input[name=_deviceid]').val();
 axios.get(`${window.burl}/devtools/mlff/js/history/section?did=${device_id}`).then(rr => {
     if (rr.data.data.length <= 0) { return }
     $.each(rr.data.data, function (k, v) {
-        console.log(k,v)
+        // console.log(k,v)
         var _tmpExit = '-', _tmpLoc = '-';
         if (v.fdexit_time) {
             _tmpExit = window.dtHumanParse(v.fdexit_time);
@@ -76,7 +76,8 @@ axios.get(`${window.burl}/devtools/mlff/js/history/section?did=${device_id}`).th
             v.ftexit_gate,
             v.ftexit_point,
             v.ftexit_section,
-            `${parseFloat(v.ffdistence_section).toFixed(2)} km`
+            `${parseFloat(v.ffdistence_section).toFixed(2)} km`,
+            `${parseFloat(v.ffavgspeed).toFixed(2)} km/h`
         ]).draw(true);
     });
 }).catch(err => {

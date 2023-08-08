@@ -67,6 +67,44 @@ $.get(url + "/devtools/monitor/js/devices", function (res) {
     // startRecord();
 });
 
+function startRecord() {
+        sio.on('trx_device_data_rcv', function (data) {
+        var v = JSON.parse(data);
+        
+        if (typeof(markers[v.id]) !== "undefined") {
+            var _curLatLng = { lat:v.lat, lng:v.lon};
+            var polylines = new L.Polyline([markers[v.id]._latlng, _curLatLng], {
+                color: markers[v.id].__pathColor,
+                weight: 5,
+                opacity: 0.5,
+                smoothFactor: 1
+            });
+            polylines.addTo(map);
+            
+            markers[v.id].slideTo([v.lat, v.lon], {
+                duration: 5000,
+                keepAtCenter: false,
+            });
+    
+            var _movIcon = L.icon({
+                iconUrl: window.c_marker_top,
+                iconSize:     window.c_marker_top_cfg[0],
+                iconAnchor:   window.c_marker_top_cfg[1],
+                popupAnchor:  window.c_marker_top_cfg[2]
+            });
+            
+            markers[v.id].setIcon(_movIcon);
+            markers[v.id].setRotationAngle(v.direction);
+            markers[v.id].setRotationOrigin("center center");
+            markers[v.id]._latlng = _curLatLng;
+            setTimeout(function () {
+                markers[v.id].setIcon(myIcon(window.c_marker_front));
+                markers[v.id].setRotationAngle(0);
+            }, 300000);
+        }
+    });
+}
+
 // function startRecord() {
 //     sio.on('trx_device_data_rcv', function (data) {
 //         var v = JSON.parse(data);

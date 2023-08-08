@@ -82,7 +82,8 @@
                                                 <th>Exit Gate</th>
                                                 <th>Exit Point</th>
                                                 <th>Exit Section</th>
-                                                <th>Distence</th>
+                                                <th>Distance</th>
+                                                <th>Speed (Avg)</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
