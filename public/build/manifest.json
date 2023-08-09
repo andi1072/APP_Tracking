@@ -120,7 +120,7 @@
     "src": "resources/js/pages/tracking_live.js"
   },
   "resources/js/pages/tracking_map.js": {
-    "file": "assets/tracking_map-6a5ab546.js",
+    "file": "assets/tracking_map-b4337851.js",
     "imports": [
       "_leaflet.rotatedMarker-2d7b659f.js",
       "_leaflet-svg-shape-markers-8f7f1e58.js",

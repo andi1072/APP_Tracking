@@ -60,6 +60,19 @@ map = L.map('trackingmap', {
 
 var _tileLayer = L.tileLayer(window.mapLayer);
 _tileLayer.addTo(map);
+
+L.control.layers({
+    'osm': _tileLayer.addTo(map),
+    "google": L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
+        attribution: 'google'
+    })
+}, {
+    // 'drawlayer': drawnItems
+}, {
+    position: 'topright',
+    collapsed: false
+}).addTo(map);
+
 var lRelay,layer_line_relay, _lRelay = [],_lRelayLine = [], layer_polyGates, _lPolyGate = [];
 $('#formMapTrack').submit(function (e) {
     e.preventDefault();
