@@ -186,6 +186,32 @@ class TollRouteController extends Controller
         ];
     }
 
+    public function set_section(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'section_name' => 'required',
+            'latlng' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'code' => 442,
+                'msg' => $validator->messages()->first(),
+            ]);
+        }
+        $body = [
+            'section_name' => $request->input('section_name'),
+            'latlng' => $request->input('latlng'),
+        ];
+        $r = Hlp::apiPost('/tollroute/set_section_name', $body);
+        $res = $r->object();
+        if ($r->status() === 200) {
+            return response()->json([], 200);
+        }else{
+            return response()->json([
+                'error' => $res->error,
+            ], 404);
+        }
+    }
+
     public function section_form_index() {
         return view('pages.tollroute.form_section');
     }

@@ -1,3 +1,4 @@
+import swal from 'sweetalert'
 var _customer_id = '';
 $('#formDevice').submit(
     function (e) {
@@ -45,21 +46,14 @@ var saveDevice = function () {
                     title: "Success",
                     text: "Continue editing?",
                     type: "success",
-                    showCancelButton: true,
-                    confirmButtonClass: "btn-primary",
-                    confirmButtonText: "Yes, continue editing!",
-                    cancelButtonText: "No, take me back!",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            window.location.href = window.burl + '/device/detail/' + did;
-                        } else {
-                            // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                            window.location.href = backurl;
-                        }
-                    });
+                    buttons: ["No, take me back!", "Yes, continue editing!!"],
+                }).then((isConfirm) => {
+                    if (isConfirm) {
+                        window.location.href = window.burl + '/device/detail/' + did;
+                    } else {
+                        window.location.href = backurl;
+                    }
+                });
 
             } else {
                 toastr.error(res.msg.obj, 'Error');

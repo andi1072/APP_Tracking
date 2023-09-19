@@ -1,5 +1,5 @@
 const geoid = $("input[name=_id]").val();
-
+import swal from 'sweetalert'
 var layerTmp = null, geoTmp = [], osmUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     osm = L.tileLayer(osmUrl, { minZoom: 5 }),
     map = new L.Map('objmap', {
@@ -79,20 +79,14 @@ $('#formGeo').submit(
                         title: "Success",
                         text: "Continue add Declaration?",
                         type: "success",
-                        showCancelButton: true,
-                        confirmButtonClass: "btn-primary",
-                        confirmButtonText: "Yes!",
-                        cancelButtonText: "No, keep in here!",
-                        closeOnConfirm: false,
-                        closeOnCancel: false
-                    },function (isConfirm) {
+                        buttons: ["No, take me back!", "Yes, continue editing!!"],
+                    }).then((isConfirm) => {
                         if (isConfirm) {
                             window.location.href = window.burl + '/geomlff/add';
                         } else {
-                            // window.location.href = window.burl + '/geomlff/list';
                             window.location.reload();
                         }
-                    });
+                    })
                     
                 } else {
                     console.log(res)

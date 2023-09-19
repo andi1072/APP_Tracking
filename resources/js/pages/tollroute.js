@@ -1,3 +1,4 @@
+import swal from 'sweetalert'
 const url = window.burl;
 const geoid = $("input[name=_id]").val();
 
@@ -7,7 +8,8 @@ var layerTmp = null, geoTmp = [], osmUrl = window.mapLayer,
         center: new L.LatLng(0.339951, 120.373368),
         zoom: 5, attributionControl: false,
         fullscreenControl: true,
-    }),drawnItems = L.featureGroup().addTo(map), _resPolygon = {}, isEdit = 0, sio = window.sio;
+    }),drawnItems = L.featureGroup().addTo(map), _resPolygon = {}, isEdit = 0;
+    
 L.Control.geocoder().addTo(map);
 L.control.layers({
     'osm': osm.addTo(map),
@@ -188,20 +190,14 @@ $('#formGeo').submit(
                         title: "Success",
                         text: "Continue editing?",
                         type: "success",
-                        showCancelButton: true,
-                        confirmButtonClass: "btn-primary",
-                        confirmButtonText: "Yes, continue editing!",
-                        cancelButtonText: "No, take me back!",
-                        closeOnConfirm: false,
-                        closeOnCancel: false
-                    },
-                        function (isConfirm) {
-                            if (isConfirm) {
-                                window.location.href = url + '/tollroute/detail/' + geoid;
-                            } else {
-                                window.location.href = backurl;
-                            }
-                        });
+                        buttons: ["No, take me back!", "Yes, continue editing!!"],
+                    }).then((isConfirm) => {
+                        if (isConfirm) {
+                            window.location.href = url + '/tollroute/detail/' + geoid;
+                        } else {
+                            window.location.href = backurl;
+                        }
+                    })
     
                 } else {
                     console.log(res)

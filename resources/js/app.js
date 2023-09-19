@@ -29,6 +29,16 @@ window.uuidv4 = function() {
     (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
   );
 }
+window.randomHexColor = () => {
+    const part = () =>
+      Math.floor(Math.random() * 256)
+        .toString(16)
+        .padStart(2, '0');
+    const r = part();
+    const g = part();
+    const b = part();
+    return `#${r}${g}${b}`;
+};
 // const sio = io("http://110.5.105.26:41257");
 // const sio = io("http://127.0.0.1:3090");
 // window.sio = sio;

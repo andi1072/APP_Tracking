@@ -1,5 +1,5 @@
 const url = window.burl;
-
+import swal from 'sweetalert'
 $('#formCustomer').submit(
     function (e) {
         e.preventDefault();
@@ -35,22 +35,15 @@ $('#formCustomer').submit(
                     swal({
                         title: "Success",
                         text: "Continue editing?",
-                        type: "success",
-                        showCancelButton: true,
-                        confirmButtonClass: "btn-primary",
-                        confirmButtonText: "Yes, continue editing!",
-                        cancelButtonText: "No, take me back!",
-                        closeOnConfirm: false,
-                        closeOnCancel: false
-                    },
-                        function (isConfirm) {
-                            if (isConfirm) {
-                                window.location.href = url + '/customer/d/' + _id;
-                            } else {
-                                // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                                window.location.href = backurl;
-                            }
-                        });
+                        icon: "success",
+                        buttons: ["No, take me back!", "Yes, continue editing!!"],
+                    }).then((isConfirm) => {
+                        if (isConfirm) {
+                            window.location.href = url + '/customer/d/' + _id;
+                        } else {
+                            window.location.href = backurl;
+                        }
+                    })
 
                 } else {
                     toastr.error(res.msg.obj, 'Error');

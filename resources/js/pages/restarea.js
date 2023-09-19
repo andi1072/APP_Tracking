@@ -1,3 +1,4 @@
+import swal from 'sweetalert'
 const url = window.burl;
 const geoid = $("input[name=_id]").val();
 
@@ -179,20 +180,14 @@ $('#formGeo').submit(
                         title: "Success",
                         text: "Continue editing?",
                         type: "success",
-                        showCancelButton: true,
-                        confirmButtonClass: "btn-primary",
-                        confirmButtonText: "Yes, continue editing!",
-                        cancelButtonText: "No, take me back!",
-                        closeOnConfirm: false,
-                        closeOnCancel: false
-                    },
-                        function (isConfirm) {
-                            if (isConfirm) {
-                                window.location.href = url + '/restarea/detail/' + geoid;
-                            } else {
-                                window.location.href = backurl;
-                            }
-                        });
+                        buttons: ["No, take me back!", "Yes, continue editing!!"],
+                    }).then((isConfirm) => {
+                        if (isConfirm) {
+                            window.location.href = url + '/restarea/detail/' + geoid;
+                        } else {
+                            window.location.href = backurl;
+                        }
+                    })
     
                 } else {
                     console.log(res)

@@ -42,5 +42,5 @@
 <script src="{{ asset('global/js/Plugin/asscrollable.js')}}"></script>
 <script src="{{ asset('global/js/Plugin/slidepanel.js')}}"></script>
 <script src="{{ asset('global/js/Plugin/switchery.js')}}"></script>
-<script src="{{ asset('global/vendor/bootstrap-sweetalert/sweetalert.js')}}"></script>
-<script src="{{ asset('global/js/Plugin/bootstrap-sweetalert.js')}}"></script>
+{{-- <script src="{{ asset('global/vendor/bootstrap-sweetalert/sweetalert.js')}}"></script>
+<script src="{{ asset('global/js/Plugin/bootstrap-sweetalert.js')}}"></script> --}}

@@ -45,9 +45,13 @@
                                         <input type="radio" id="ckAddPoints" name="ckAddPoints" autocomplete="off" value="1" />
                                         <i class="icon md-pin text-active" aria-hidden="true"></i>Add Points
                                     </label>
+                                    <label class="btn btn-info">
+                                        <input type="radio" id="ckAddTollSection" name="ckAddTollSection" autocomplete="off" value="3" />
+                                        <i class="icon md-camera-front text-active" aria-hidden="true"></i>Add Toll Section
+                                    </label>
                                     <label class="btn btn-danger">
                                         <input type="radio" id="ckDelPoints" name="ckDelPoints" autocomplete="off" value="2" />
-                                        <i class="icon md-pin text-active" aria-hidden="true"></i>Delete Points
+                                        <i class="icon md-delete text-active" aria-hidden="true"></i>Delete Points
                                     </label>
                                 </div>
                             </div>
