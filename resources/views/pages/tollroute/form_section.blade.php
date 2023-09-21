@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="{{ asset('leaflet/fullscreen/leaflet.fullscreen.css')}}" />
 <link rel="stylesheet" href="{{ asset('leaflet/geocoder/Control.Geocoder.css')}}" />
 <link rel="stylesheet" href="{{ asset('leaflet/draw/leaflet.draw.css')}}" />
+<link rel="stylesheet" href="{{ asset('leaflet/elevation/Leaflet.Elevation-0.0.1.css')}}" />
+
 <style>
     /* #crosshair-button {
   position: absolute;
@@ -37,21 +39,26 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons" role="group">
-                                    <label class="btn btn-info active">
+                                    <label class="btn btn-info btn-sm active">
                                         <input type="radio" id="ckScanPoints" name="ckScanPoints" autocomplete="off" value="0" checked />
                                         <i class="icon md-apps" aria-hidden="true"></i>Scan Points
                                     </label>
-                                    <label class="btn btn-info">
+                                    <label class="btn btn-info btn-sm">
                                         <input type="radio" id="ckAddPoints" name="ckAddPoints" autocomplete="off" value="1" />
                                         <i class="icon md-pin text-active" aria-hidden="true"></i>Add Points
                                     </label>
-                                    <label class="btn btn-info">
+                                    <label class="btn btn-info btn-sm">
                                         <input type="radio" id="ckAddTollSection" name="ckAddTollSection" autocomplete="off" value="3" />
-                                        <i class="icon md-camera-front text-active" aria-hidden="true"></i>Add Toll Section
+                                        <i class="icon md-camera-front text-active" aria-hidden="true"></i>Set Toll Section Name
                                     </label>
-                                    <label class="btn btn-danger">
+                                    {{-- <label class="btn btn-info btn-sm">
+                                        <input type="radio" id="ckAddTollSection" name="ckAddElevation" autocomplete="off" value="3" />
+                                        <i class="icon md-sort-amount-asc text-active" aria-hidden="true"></i>Generate Elevation
+                                    </label>
+                                     --}}
+                                    <label class="btn btn-danger btn-sm">
                                         <input type="radio" id="ckDelPoints" name="ckDelPoints" autocomplete="off" value="2" />
-                                        <i class="icon md-delete text-active" aria-hidden="true"></i>Delete Points
+                                        <i class="icon md-delete text-active" aria-hidden="true"></i>Delete
                                     </label>
                                 </div>
                             </div>

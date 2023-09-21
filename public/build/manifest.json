@@ -106,7 +106,7 @@
     "src": "resources/js/pages/restarea.js"
   },
   "resources/js/pages/section_map.js": {
-    "file": "assets/section_map-699c133e.js",
+    "file": "assets/section_map-c8483bea.js",
     "imports": [
       "_leaflet-svg-shape-markers-8f7f1e58.js",
       "_sweetalert.min-9dab74b7.js",

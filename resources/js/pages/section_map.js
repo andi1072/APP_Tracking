@@ -188,9 +188,10 @@ function pointing_section(map) {
     }
 
     function pop_Section(feature, layer) {
-        var v = feature.properties;
+        let v = feature.properties;
+        let _strView = `TOLL SECTION NAME : ${v.ftsection_name} </br>ELEVATION : ${v.ffelevation ? v.ffelevation : 'n/a'} meter`
         if (v.ftsection_name) {
-            layer.bindTooltip(v.ftsection_name).openTooltip();
+            layer.bindTooltip(_strView).openTooltip();
         }
     }
 
@@ -392,7 +393,8 @@ function __scanPoint(lat,lon) {
             _lSection.push({
                 type: "Feature",
                 properties: {
-                    ftsection_name: v.ftsection_name
+                    ftsection_name: v.ftsection_name,
+                    ffelevation: v.ffelevation
                 },
                 geometry: { type: "Point", coordinates: [parseFloat(v.fflon), parseFloat(v.fflat)] },
             });
