@@ -116,7 +116,7 @@ Route::group(['middleware' => 'chk'], function () {
             Route::post('js/add','create_update')->name('tollroute_create_update_js');
             Route::post('js/delete','delete')->name('tollroute_create_delete_js');
             Route::post('js/set_section','set_section')->name('tollroute_create_add_section_js');
-            Route::get('js/set_section_elevation','set_section_elevation')->name('tollroute_create_set_section_elevation_js');
+            Route::post('js/set_section_elevation','set_section_elevation')->name('tollroute_create_set_section_elevation_js');
             Route::get('map', 'section_form_index')->name('section_form_index');
         });
     });

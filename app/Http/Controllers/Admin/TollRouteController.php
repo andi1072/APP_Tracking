@@ -211,7 +211,7 @@ class TollRouteController extends Controller
             ], 404);
         }
     }
-
+    
     public function set_section_elevation(Request $request) {
         $validator = Validator::make($request->all(), [
             'latlng' => 'required',
@@ -222,29 +222,18 @@ class TollRouteController extends Controller
                 'msg' => $validator->messages()->first(),
             ]);
         }
-        $_latLng = explode(', ',$request->input('latlng'));
-        $_latLngTmp = [];
-        foreach ($_latLng as $val) {
-            $valTmp = explode(' ',$val);
-            $res = Hlp::apiPost('/tollroute/set_section_elevation', [
-                'latlng' => str_replace(' ',',',$val),
-                'elev_numb' => Hlp::getExtElev($valTmp[1],$valTmp[0])
-            ]);
-            dd($res->object());
+        $body = [
+            'latlng' => $request->input('latlng'),
+        ];
+        $r = Hlp::apiPost('/tollroute/set_section_elevation', $body);
+        $res = $r->object();
+        if ($r->status() === 200) {
+            return response()->json([], 200);
+        }else{
+            return response()->json([
+                'error' => $res->error,
+            ], 404);
         }
-        // $body = [
-        //     'latlng' => ,
-        // ];
-        return response()->json([], 200);
-        // $r = Hlp::apiPost('/tollroute/set_section_name', $body);
-        // $res = $r->object();
-        // if ($r->status() === 200) {
-        //     return response()->json([], 200);
-        // }else{
-        //     return response()->json([
-        //         'error' => $res->error,
-        //     ], 404);
-        // }
     }
 
     public function section_form_index() {

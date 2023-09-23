@@ -129,6 +129,10 @@ map.on(L.Draw.Event.CREATED, function (event) {
                         __remNewMkr()
                     }
                 });
+                break;
+            case 4:
+                __setFlyOverLocation(`${__resDeleted}${__resDeletedTmp}`)
+                break;
             default:
                 break;
         }
@@ -189,7 +193,10 @@ function pointing_section(map) {
 
     function pop_Section(feature, layer) {
         let v = feature.properties;
-        let _strView = `TOLL SECTION NAME : ${v.ftsection_name} </br>ELEVATION : ${v.ffelevation ? v.ffelevation : 'n/a'} meter`
+        let _strView = `<ul style="list-style-type: none; margin: 0; padding: 0;">
+        <li style="font-weight: bold;">Name: ${v.ftsection_name}</li>
+        <li style="font-weight: bold;">Type: ${v.fbfly_over ? 'Flyover' : 'Street'}</li>
+        <li style="font-weight: bold;">Elevation: ${v.ffelevation ? v.ffelevation : 'n/a'} Meter</li>`
         if (v.ftsection_name) {
             layer.bindTooltip(_strView).openTooltip();
         }
@@ -240,6 +247,13 @@ $("input[name='ckDelPoints']").change(function () {
 
 $("input[name='ckAddTollSection']").change(function () {
     _switchBtn = 3;
+    map.addControl(drawControlFull);
+    __remNewMkr()
+    __scanPoint(lat,lon);
+});
+
+$("input[name='ckFlyOverLocation']").change(function () {
+    _switchBtn = 4;
     map.addControl(drawControlFull);
     __remNewMkr()
     __scanPoint(lat,lon);
@@ -349,6 +363,38 @@ function __setSection_name(val,__latlng) {
     });
 }
 
+function __setFlyOverLocation(__latlng) {
+    var fd = new FormData();
+    fd.append('_token', $("input[name=_token]").val());
+    fd.append('latlng', __latlng);
+    $.ajax({
+        type: 'POST'
+        , url: `${window.burl}/tollroute/js/set_section_elevation`
+        , data: fd
+        , dataType: 'json'
+        , contentType: false
+        , cache: false
+        , processData: false
+        , beforeSend: function () {
+            $('#formSection').css("opacity", ".5");
+        }
+        , success: function (res) {
+            console.log('res',res)
+            toastr.success('', 'Success');
+            __scanPoint(lat,lon);
+            map.addControl(drawControlFull);
+            map.removeLayer(self.Polygon);
+            __remNewMkr()
+        }, error: function(err) {
+            console.log(err)
+            let _err = JSON.parse(err.responseText)
+            toastr.error(_err.error, 'Error');
+        }, complete: function() {
+            $('#formSection').css("opacity", "");
+        },
+    });
+}
+
 L.DomUtil.addClass(map._container, 'crosshair-cursor-enabled');
 
 map.on('click', function (e) {
@@ -394,7 +440,8 @@ function __scanPoint(lat,lon) {
                 type: "Feature",
                 properties: {
                     ftsection_name: v.ftsection_name,
-                    ffelevation: v.ffelevation
+                    ffelevation: v.ffelevation,
+                    fbfly_over: v.fbfly_over
                 },
                 geometry: { type: "Point", coordinates: [parseFloat(v.fflon), parseFloat(v.fflat)] },
             });

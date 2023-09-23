@@ -12,9 +12,11 @@ body {
 #trackingmap,
 #statusmap,
 #livemap ,
-#trackingmlff_log,
-#sectionmap{
+#trackingmlff_log{
     height: 500px;
+}
+#sectionmap{
+    height: 600px;
 }
 /* .leaflet-popup-content {
     width: 342px;

@@ -29,50 +29,48 @@
     <div class="page-header page-header-bordered">
         <h1 class="page-title">Toll Section Editor</h1>
     </div>
-    <div class="container">
-        <div class="page-content">
-            <div class="panel">
-                <form method="POST" id="formSection" enctype="multipart/form-data" autocomplete="off">
-                    @csrf
-                    <div class="panel-body container-fluid">
-                        {{-- <div class="py-4"></div> --}}
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons" role="group">
-                                    <label class="btn btn-info btn-sm active">
-                                        <input type="radio" id="ckScanPoints" name="ckScanPoints" autocomplete="off" value="0" checked />
-                                        <i class="icon md-apps" aria-hidden="true"></i>Scan Points
-                                    </label>
-                                    <label class="btn btn-info btn-sm">
-                                        <input type="radio" id="ckAddPoints" name="ckAddPoints" autocomplete="off" value="1" />
-                                        <i class="icon md-pin text-active" aria-hidden="true"></i>Add Points
-                                    </label>
-                                    <label class="btn btn-info btn-sm">
-                                        <input type="radio" id="ckAddTollSection" name="ckAddTollSection" autocomplete="off" value="3" />
-                                        <i class="icon md-camera-front text-active" aria-hidden="true"></i>Set Toll Section Name
-                                    </label>
-                                    {{-- <label class="btn btn-info btn-sm">
-                                        <input type="radio" id="ckAddTollSection" name="ckAddElevation" autocomplete="off" value="3" />
-                                        <i class="icon md-sort-amount-asc text-active" aria-hidden="true"></i>Generate Elevation
-                                    </label>
-                                     --}}
-                                    <label class="btn btn-danger btn-sm">
-                                        <input type="radio" id="ckDelPoints" name="ckDelPoints" autocomplete="off" value="2" />
-                                        <i class="icon md-delete text-active" aria-hidden="true"></i>Delete
-                                    </label>
-                                </div>
+    <div class="page-content">
+        <div class="panel">
+            <form method="POST" id="formSection" enctype="multipart/form-data" autocomplete="off">
+                @csrf
+                <div class="panel-body">
+                    {{-- <div class="py-4"></div> --}}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons" role="group">
+                                <label class="btn btn-info btn-sm active">
+                                    <input type="radio" id="ckScanPoints" name="ckScanPoints" autocomplete="off" value="0" checked />
+                                    <i class="icon md-apps" aria-hidden="true"></i>Scan Points
+                                </label>
+                                <label class="btn btn-info btn-sm">
+                                    <input type="radio" id="ckAddPoints" name="ckAddPoints" autocomplete="off" value="1" />
+                                    <i class="icon md-pin text-active" aria-hidden="true"></i>Add Points
+                                </label>
+                                <label class="btn btn-info btn-sm">
+                                    <input type="radio" id="ckAddTollSection" name="ckAddTollSection" autocomplete="off" value="3" />
+                                    <i class="icon md-camera-front text-active" aria-hidden="true"></i>Set Toll Section Name
+                                </label>
+                                <label class="btn btn-info btn-sm">
+                                    <input type="radio" id="ckFlyOverLocation" name="ckFlyOverLocation" autocomplete="off" value="4" />
+                                    <i class="icon md-sort-amount-asc text-active" aria-hidden="true"></i>Set Flyover Location
+                                </label>
+                                
+                                <label class="btn btn-danger btn-sm">
+                                    <input type="radio" id="ckDelPoints" name="ckDelPoints" autocomplete="off" value="2" />
+                                    <i class="icon md-delete text-active" aria-hidden="true"></i>Delete
+                                </label>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="row py-4">
-                                    <div class="col">
-                                        <div id="sectionmap"></div>
-                                    </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="row py-4">
+                                <div class="col">
+                                    <div id="sectionmap"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
     @push('isscript')

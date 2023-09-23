@@ -103,7 +103,7 @@
                     <li class="site-menu-item {{ \Hlp::chkActive(route('section_form_index')) }}">
                         <a class="animsition-link" href="{{ route('section_form_index') }}">
                             <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
-                            <span class="site-menu-title">Toll Section</span>
+                            <span class="site-menu-title">Toll Section Editor</span>
                         </a>
                     </li>
                     @if (\Hlp::chkActive(route('geomlff_create_index')) || \Hlp::chkActive(route('geomlff_list')) || \Hlp::chkActive(route('gate_create')))

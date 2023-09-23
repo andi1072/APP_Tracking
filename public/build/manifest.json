@@ -18,7 +18,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-d948abcf.css",
+    "file": "assets/app-47b682bb.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -106,7 +106,7 @@
     "src": "resources/js/pages/restarea.js"
   },
   "resources/js/pages/section_map.js": {
-    "file": "assets/section_map-c8483bea.js",
+    "file": "assets/section_map-acb6ed99.js",
     "imports": [
       "_leaflet-svg-shape-markers-8f7f1e58.js",
       "_sweetalert.min-9dab74b7.js",
