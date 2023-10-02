@@ -63,11 +63,21 @@ class TrackingController extends Controller
 
     public function detail_status($device_id) {
         $resDvStatus = Hlp::apiGet('/tracking/d/'. $device_id);
-        // dd($resDvStatus);
+        $resLocation = Hlp::apiGetExt("https://nominatim.openstreetmap.org/search?q=". $resDvStatus->deviceRelay->fflat .",". $resDvStatus->deviceRelay->fflon ."&format=json");
+        
+        if ($resLocation->status() === 200) {
+            $resLocationAddr = $resLocation->object()[0]->display_name;
+            // dd($resLocationAddr[0]->display_name);
+        }else{
+            $resLocationAddr = 'n/a';
+        }
+        // dd($resDvStatus,$resLocation->object());
+        // https://nominatim.openstreetmap.org/search?q=indonesia&format=json
         return view('pages.tracking.form_status',[
             'cfg' => [
                 'title' => $resDvStatus->deviceRelay->ftdevice_name,
                 'deviceid' => $resDvStatus->deviceRelay->ftdevice_id,
+                'locationAddr' => $resLocationAddr
             ],
             'deviceData' => $resDvStatus
         ]);

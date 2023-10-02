@@ -56,7 +56,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col-6">
                                             <div class="panel-body container-fluid">
                                                 <div class="col-md-12">
                                                     <div class="col">
@@ -118,7 +118,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-6">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <h3>
@@ -133,9 +133,6 @@
                                                 <div class="col">
                                                     <span class="badge badge-default text-uppercase text-left">GNSS Point</span>
                                                 </div>
-                                                <div class="col">
-                                                    <span class="badge badge-default text-uppercase text-left">Location</span>
-                                                </div>
                                             </div>
                                             <div class="border-top my-3"></div>
                                             <div class="row">
@@ -145,11 +142,17 @@
                                                 <div class="col">
                                                     <span id="entrypoint" class="badge badge-default text-wrap text-left">{{ $deviceData->deviceRelay->fflat . ', '. $deviceData->deviceRelay->fflon}}</span>
                                                 </div>
+                                            </div>
+                                            <div class="border-top my-3"></div>
+                                            <div class="row">
                                                 <div class="col">
-                                                    <span id="exitpoint" class="badge badge-default text-wrap text-left">n/a</span>
+                                                    <span class="badge badge-default text-uppercase text-left text-bold">Location:</span>
+                                                    <label class="text text-sm text-default pl-6">
+                                                        <p id="locationAddr" class="text-wrap">{{ $cfg['locationAddr'] }}</p>
+                                                    </label>
                                                 </div>
                                             </div>
-                                            
+                                            <div class="border-top my-3"></div>
                                             <div class="row py-4">
                                                 <div class="col">
                                                     <div id="statusmap"></div>

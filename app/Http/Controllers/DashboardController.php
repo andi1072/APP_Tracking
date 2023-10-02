@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Hlp;
 use Illuminate\Support\Facades\Validator;
 use Cookie;
+use Illuminate\Support\Facades\Redis;
 class DashboardController extends Controller
 {
 

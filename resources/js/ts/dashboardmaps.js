@@ -2,7 +2,7 @@ const url = window.burl;
 // const iconUrl = "/assets/images/leaflet/yellow-car40px.png";
 
 var map = L.map('dashboardmap', {
-    minZoom: 5,
+    minZoom: 2,
     attributionControl: false,
 }).setView([
     0.33995192349439596, 120.3733680354565

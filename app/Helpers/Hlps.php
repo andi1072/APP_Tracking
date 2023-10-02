@@ -45,6 +45,18 @@ class Hlps
         return $hmac . '.' . $enc;
     }
     
+    public static function apiGetExt($url)
+    {
+        return Http::get($url);
+    }
+
+    public static function apiGetNonObj($url)
+    {
+        $res = Http::withToken(Cookie::get('API_TOKEN'))
+        ->get(env('APP_API'). '/api' . $url);
+        return $res;
+    }
+
     public static function apiGet($url)
     {
         $response = Http::withToken(Cookie::get('API_TOKEN'))

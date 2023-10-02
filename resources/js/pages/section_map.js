@@ -26,6 +26,8 @@ L.control.layers({
     collapsed: false
 }).addTo(map);
 
+
+
 // Add Draw
 self.drawControlFull = new L.Control.Draw({
     edit: {
@@ -131,7 +133,29 @@ map.on(L.Draw.Event.CREATED, function (event) {
                 });
                 break;
             case 4:
-                __setFlyOverLocation(`${__resDeleted}${__resDeletedTmp}`)
+                const _input = document.createElement('input');
+                const _label = document.createElement('label');
+                _input.type = 'checkbox';
+                _input.id = 'ckflyover'
+                _label.for = "ckflyover";
+                _label.innerHTML = "&nbsp;Set Point for Flyover"
+
+                const container = document.createElement("div");
+                container.append(_input);
+                // container.append(document.createElement("br"));
+                container.append(_label);
+                swal({
+                    closeOnConfirm: false,
+                    closeOnCancel: false,
+                    content: container,
+                }).then((val) => {
+                    if (val) {
+                        console.log('A',val)
+                    }else{
+                        console.log('B',val)
+                    }
+                });
+                // __setFlyOverLocation(`${__resDeleted}${__resDeletedTmp}`)
                 break;
             default:
                 break;

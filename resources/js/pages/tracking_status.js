@@ -1,3 +1,4 @@
+// import { OpenStreetMapProvider } from 'leaflet-geosearch';
 const url = window.burl;
 // const iconUrl = "/assets/images/leaflet/yellow-car40px.png";
 const shadowUrl = window.shadowUrl;
@@ -59,3 +60,7 @@ var myFGMarker = new L.FeatureGroup();
 myFGMarker.addLayer(marker);
 myFGMarker.addTo(map);
 map.fitBounds(myFGMarker.getBounds());
+
+// const provider = new OpenStreetMapProvider()
+// const results = await provider.search({ query: `${_curLat},${_curLon}` })
+// $('#locationAddr').text(results[0].label)

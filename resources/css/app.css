@@ -63,3 +63,7 @@ body {
     color: purple;
     font-size: 50px; 
 }
+
+.pl-6 {
+    padding-left: 6px;
+}
